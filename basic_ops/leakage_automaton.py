@@ -1,5 +1,5 @@
-from basic_ops.determinize import determinize
 from basic_ops.coaccessible import get_coaccessible
+from basic_ops.determinize import determinize
 from basic_ops.union import union
 from structure_validation.automaton_validator import Automaton
 

@@ -1,7 +1,8 @@
 from copy import deepcopy
 from itertools import chain
-from basic_ops.helpers.string_helpers import extract_state
+
 from basic_ops.accessible import get_accessible
+from basic_ops.helpers.string_helpers import extract_state
 from structure_validation.automaton_validator import Automaton
 
 

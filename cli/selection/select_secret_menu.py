@@ -1,7 +1,6 @@
-from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
+from cli.display.message import show_error, show_notification
 from structure_validation.automaton_validator import Automaton
-
 
 # Part 1 of the message describing what the menu is for
 menu_msg = """

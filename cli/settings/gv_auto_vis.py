@@ -1,7 +1,6 @@
 import global_settings
 from cli.display.display_menu import display_menu
-from cli.display.message import show_notification, show_error
-
+from cli.display.message import show_error, show_notification
 
 # Message for the menu
 menu_msg = """

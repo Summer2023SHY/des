@@ -1,6 +1,5 @@
 from time import sleep
 
-
 # The default speed for each line appearing on the command line
 sleep_time = 0.025
 

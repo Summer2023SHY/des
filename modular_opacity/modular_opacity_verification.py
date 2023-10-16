@@ -1,14 +1,14 @@
 from typing import Callable
 
-from structure_validation.automaton_validator import Automaton
+from basic_ops.determinize import determinize
 from basic_ops.opacity import check_opacity_already_determinized
 from basic_ops.union import union
-from basic_ops.determinize import determinize
 from modular_opacity.heuristics import (
-    no_heuristic,
-    most_shared_heuristic,
     least_new_heuristic,
+    most_shared_heuristic,
+    no_heuristic,
 )
+from structure_validation.automaton_validator import Automaton
 
 
 def check_modular_opacity(

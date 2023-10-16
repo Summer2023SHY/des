@@ -1,10 +1,11 @@
 import os
-from tkinter import filedialog
 from json import dump
-from graph_viz.visualize import visualize
-from cli.selection.select_automata_menu import select_automata_menu
-from cli.display.message import show_error, show_notification
+from tkinter import filedialog
+
 import global_settings
+from cli.display.message import show_error, show_notification
+from cli.selection.select_automata_menu import select_automata_menu
+from graph_viz.visualize import visualize
 from structure_validation.automaton_validator import Automaton
 
 

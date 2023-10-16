@@ -1,4 +1,4 @@
-from basic_ops.helpers.product_helpers import product_transitions, product_events
+from basic_ops.helpers.product_helpers import product_events, product_transitions
 from structure_validation.automaton_validator import Automaton
 
 

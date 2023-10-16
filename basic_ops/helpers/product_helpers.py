@@ -1,8 +1,7 @@
 from typing import Any
 
-import basic_ops.helpers.string_helpers as helper
 import basic_ops.helpers.state_helpers as state_helper
-
+import basic_ops.helpers.string_helpers as helper
 from structure_validation.automaton_validator import Automaton
 
 

@@ -1,14 +1,14 @@
-from cli.menus.ops_menu import ops_menu
-from cli.menus.open_file_menu import open_file_menu
-from cli.selection.select_automata_menu import print_selected
-from cli.display.message import show_error
-from cli.menus.close_automata_menu import close_automata_menu
-from cli.save_and_visualize import select_and_save_temp, select_and_save
-from cli.display.display_menu import display_menu
-from cli.settings.settings_menu import settings_menu
-from structure_validation.automaton_validator import Automaton
 from time import sleep
 
+from cli.display.display_menu import display_menu
+from cli.display.message import show_error
+from cli.menus.close_automata_menu import close_automata_menu
+from cli.menus.open_file_menu import open_file_menu
+from cli.menus.ops_menu import ops_menu
+from cli.save_and_visualize import select_and_save, select_and_save_temp
+from cli.selection.select_automata_menu import print_selected
+from cli.settings.settings_menu import settings_menu
+from structure_validation.automaton_validator import Automaton
 
 # The message describing what the menu is for
 menu_msg = """

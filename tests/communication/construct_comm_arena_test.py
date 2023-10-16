@@ -1,9 +1,10 @@
+import json
 import unittest
+
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
-from structure_validation.automaton_validator import validate
-import json
 from communication.construct_communication_arena import construct_communication_arena
+from structure_validation.automaton_validator import validate
 
 
 class TestConstructCommArena(unittest.TestCase):

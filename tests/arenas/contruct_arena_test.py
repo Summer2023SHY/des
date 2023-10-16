@@ -1,7 +1,8 @@
+import json
 import unittest
+
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
-import json
 from arenas.construct_arena import construct_arena
 
 

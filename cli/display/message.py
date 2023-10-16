@@ -1,6 +1,5 @@
 from time import sleep
 
-
 # Default speed at which lines appear in the CLI
 sleep_time = 0.05
 

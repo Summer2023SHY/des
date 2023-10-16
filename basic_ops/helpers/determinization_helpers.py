@@ -1,5 +1,5 @@
-from basic_ops.helpers.string_helpers import format_transition, format_state_set
 from basic_ops.helpers.state_helpers import check_marked_inverse
+from basic_ops.helpers.string_helpers import format_state_set, format_transition
 from structure_validation.automaton_validator import Automaton
 
 

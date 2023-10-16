@@ -1,13 +1,12 @@
-from tkinter import filedialog
 import tkinter as tk
-from json import load, JSONDecodeError
+from json import JSONDecodeError, load
+from tkinter import filedialog
 
-from structure_validation.automaton_validator import Automaton, validate
-from cli.menus.name_automaton_menu import name_automaton_menu
-from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
+from cli.display.message import show_error, show_notification
+from cli.menus.name_automaton_menu import name_automaton_menu
 from cli.save_and_visualize import save_temp
-
+from structure_validation.automaton_validator import Automaton, validate
 
 # The message describing what the menu is for
 menu_msg = """

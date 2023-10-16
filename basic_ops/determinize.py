@@ -1,5 +1,5 @@
-from basic_ops.helpers.event_helpers import intersect_events
 from basic_ops.helpers.determinization_helpers import determinize_transitions
+from basic_ops.helpers.event_helpers import intersect_events
 from structure_validation.automaton_validator import Automaton
 
 

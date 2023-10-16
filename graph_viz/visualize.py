@@ -1,8 +1,8 @@
 from graphviz import Digraph
-from graph_viz.event_legend import generate_event_legend
-from basic_ops.helpers.string_helpers import extract_state, extract_event
-import global_settings
 
+import global_settings
+from basic_ops.helpers.string_helpers import extract_event, extract_state
+from graph_viz.event_legend import generate_event_legend
 from structure_validation.automaton_validator import Automaton
 
 

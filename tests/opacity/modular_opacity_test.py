@@ -1,10 +1,11 @@
+import json
 import unittest
+
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
-import json
+from modular_opacity.heuristics import least_new_heuristic, most_shared_heuristic
 from modular_opacity.modular_opacity_verification import check_modular_opacity
 from structure_validation.automaton_validator import validate
-from modular_opacity.heuristics import most_shared_heuristic, least_new_heuristic
 
 
 class TestModularOpacity(unittest.TestCase):

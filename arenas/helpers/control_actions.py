@@ -1,4 +1,5 @@
-from itertools import combinations, chain
+from itertools import chain, combinations
+
 import basic_ops.helpers.string_helpers as str_helper
 from basic_ops.helpers.determinization_helpers import get_unobservable_reach
 

@@ -1,11 +1,10 @@
-from modular_opacity.heuristics import (
-    no_heuristic,
-    most_shared_heuristic,
-    least_new_heuristic,
-)
-
-from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
+from cli.display.message import show_error, show_notification
+from modular_opacity.heuristics import (
+    least_new_heuristic,
+    most_shared_heuristic,
+    no_heuristic,
+)
 
 menu_msg = """
 Select Heuristic Menu

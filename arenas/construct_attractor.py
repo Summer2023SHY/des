@@ -1,5 +1,6 @@
-from arenas.helpers.construct_attractor_helpers import *
 from copy import deepcopy
+
+from arenas.helpers.construct_attractor_helpers import *
 
 
 def construct_attractor(arena: dict):

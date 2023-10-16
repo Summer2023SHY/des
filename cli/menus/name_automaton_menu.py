@@ -2,7 +2,6 @@ from cli.display.display_menu import display_menu
 from cli.display.message import show_error, show_notification
 from structure_validation.automaton_validator import Automaton
 
-
 # The message describing what the menu is for
 menu_msg = """
 Name Your Automaton

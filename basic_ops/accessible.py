@@ -1,4 +1,5 @@
 from copy import deepcopy
+
 from basic_ops.helpers.string_helpers import format_transition
 from structure_validation.automaton_validator import Automaton
 

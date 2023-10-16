@@ -1,6 +1,7 @@
-import unittest
-from structure_validation.automaton_validator import validate
 import json
+import unittest
+
+from structure_validation.automaton_validator import validate
 
 
 class TestAutomatonValidation(unittest.TestCase):

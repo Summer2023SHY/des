@@ -1,29 +1,27 @@
+from arenas.construct_arena import construct_arena
+from arenas.construct_attractor import construct_attractor
+from basic_ops.accessible import get_accessible
+from basic_ops.coaccessible import get_coaccessible
+from basic_ops.controllable import get_controllable
 from basic_ops.determinize import determinize
+from basic_ops.leakage_automaton import create_leakage_automaton
 from basic_ops.opacity import check_opacity
 from basic_ops.product import product
 from basic_ops.union import union
-from basic_ops.accessible import get_accessible
-from basic_ops.controllable import get_controllable
-from basic_ops.coaccessible import get_coaccessible
-from basic_ops.leakage_automaton import create_leakage_automaton
-from arenas.construct_arena import construct_arena
-from arenas.construct_attractor import construct_attractor
-from modular_opacity.modular_opacity_verification import check_modular_opacity
-from communication.construct_communication_arena import construct_communication_arena
-from structure_validation.automaton_validator import Automaton
-
+from cli.display.display_menu import display_menu
+from cli.display.message import show_error, show_notification
+from cli.menus.name_automaton_menu import name_automaton_menu
+from cli.menus.select_heuristic import select_heuristic
+from cli.save_and_visualize import save_temp
 from cli.selection.select_automata_menu import (
     select_automata_menu,
     select_automaton_menu,
 )
 from cli.selection.select_observer_menu import select_observer_menu
 from cli.selection.select_secret_menu import select_secret_menu
-from cli.menus.name_automaton_menu import name_automaton_menu
-from cli.display.message import show_error, show_notification
-from cli.display.display_menu import display_menu
-from cli.save_and_visualize import save_temp
-from cli.menus.select_heuristic import select_heuristic
-
+from communication.construct_communication_arena import construct_communication_arena
+from modular_opacity.modular_opacity_verification import check_modular_opacity
+from structure_validation.automaton_validator import Automaton
 
 # The message describing what the menu is for
 menu_msg = """
