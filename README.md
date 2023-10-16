@@ -15,8 +15,9 @@ Before using the application:
 - Make sure you have **Python 3.11** installed, as well as tkinter (which is typically bundled with python)
 - If you want to visualize the graphs, the following is also necessary:
   - Install the graphviz python module using `pip install graphviz`
-  - Install the graphviz application from https://www.graphviz.org/ and add the graphviz's bin to your PATH (for instance, on windows make sure `C:/Program Files (x86)/Graphviz2.38/bin/` is in your PATH)
-    - For mac users with Homebrew installed https://brew.sh/, simply do `brew install graphviz` to install it with all dependencies
+  - Download and install [Graphviz](https://www.graphviz.org/). Make sure to add Graphviz to your PATH.
+    - For Windows users, select "Add Graphviz to the system PATH for all users" option in the installer.
+    - For mac users with [Homebrew](https://brew.sh/) installed , simply do `brew install graphviz` to install it with all dependencies.
 
 Run the application in the main directory as follows:
 
