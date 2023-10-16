@@ -1,5 +1,7 @@
 # DESwiz
 
+[![CI](https://github.com/Summer2023SHY/des/actions/workflows/ci.yml/badge.svg)](https://github.com/Summer2023SHY/des/actions/workflows/ci.yml)
+
 DESwiz is a discrete event system tool for working with finite state automata
 and other systems. It has been designed as proof-of-concept for academic works
 in theoretical computer science developed at Inria (Rennes, France) and Mount
@@ -7,8 +9,9 @@ Allison University (Sackville, Canada).
 
 ## Getting Started
 
-Before using the application: 
-- Make sure you have **Python 3.7** installed, as well as tkinter (which is typically bundled with python)
+Before using the application:
+
+- Make sure you have **Python 3.11** installed, as well as tkinter (which is typically bundled with python)
 - If you want to visualize the graphs, the following is also necessary:
   - Install the graphviz python module using `pip install graphviz`
   - Install the graphviz application from https://www.graphviz.org/ and add the graphviz's bin to your PATH (for instance, on windows make sure `C:/Program Files (x86)/Graphviz2.38/bin/` is in your PATH)
@@ -16,8 +19,8 @@ Before using the application:
 
 Run the application in the main directory as follows:
 
-```
-python3 main.py
+```bash
+python3 ./main.py
 ```
 
 Follow the on-screen instructions to interact with the command-line interface. Note that you will need input automata to provide the application—these should all be in separate files which you will need to load into the application after launch.
