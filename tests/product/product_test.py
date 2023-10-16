@@ -37,7 +37,9 @@ class TestProduct(unittest.TestCase):
             # Get the answer
             ans = None
             with open(
-                "tests/product/product_test_cases/product_test_" + str(i + 1) + "_out.json"
+                "tests/product/product_test_cases/product_test_"
+                + str(i + 1)
+                + "_out.json"
             ) as f:
                 ans = json.load(f)
 
