@@ -9,9 +9,9 @@ from basic_ops.accessible import get_accessible
 class TestAccessible(unittest.TestCase):
     def setUp(self):
         self.filenames = [
-            "tests/accessible/accessible_test_cases/accessible_test_1.in",
-            "tests/accessible/accessible_test_cases/accessible_test_2.in",
-            "tests/accessible/accessible_test_cases/accessible_test_3.in",
+            "tests/accessible/accessible_test_cases/accessible_test_1_in.json",
+            "tests/accessible/accessible_test_cases/accessible_test_2_in.json",
+            "tests/accessible/accessible_test_cases/accessible_test_3_in.json",
         ]
 
         # First automaton for each test case
@@ -27,7 +27,7 @@ class TestAccessible(unittest.TestCase):
         for i in range(len(self.automata)):
             # Get the answer
             ans = None
-            with open(self.filenames[i][:-3] + ".out") as f:
+            with open(self.filenames[i][:-7] + "out.json") as f:
                 ans = json.load(f)
 
             # Get the arena for the appropriate automaton

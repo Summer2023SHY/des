@@ -9,8 +9,8 @@ from basic_ops.determinize import determinize
 class TestDeterminize(unittest.TestCase):
     def setUp(self):
         self.filenames = [
-            # "tests/determinize/determinize_test_cases/determinize_test_1.in",
-            "tests/determinize/determinize_test_cases/determinize_test_2.in"
+            # "tests/determinize/determinize_test_cases/determinize_test_1_in.json",
+            "tests/determinize/determinize_test_cases/determinize_test_2_in.json"
         ]
 
         # First automaton for each test case
@@ -26,7 +26,7 @@ class TestDeterminize(unittest.TestCase):
         for i in range(len(self.automata)):
             # Get the answer
             ans = None
-            with open(self.filenames[i][:-2] + "out") as f:
+            with open(self.filenames[i][:-7] + "out.json") as f:
                 ans = json.load(f)
 
             # Get the determinization of the appropriate automaton

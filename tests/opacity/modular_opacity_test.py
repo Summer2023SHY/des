@@ -12,11 +12,11 @@ class TestModularOpacity(unittest.TestCase):
     def setUp(self):
         self.filenames = [
             # Test case that doesn't work, from paper
-            "tests/opacity/modular_opacity_test_cases/modular_test_1-1.in",
-            "tests/opacity/modular_opacity_test_cases/modular_test_1-2.in",
+            "tests/opacity/modular_opacity_test_cases/modular_test_1-1_in.json",
+            "tests/opacity/modular_opacity_test_cases/modular_test_1-2_in.json",
             # Test case that DOES work
-            "tests/opacity/modular_opacity_test_cases/modular_test_2-1.in",
-            "tests/opacity/modular_opacity_test_cases/modular_test_2-2.in",
+            "tests/opacity/modular_opacity_test_cases/modular_test_2-1_in.json",
+            "tests/opacity/modular_opacity_test_cases/modular_test_2-2_in.json",
         ]
         self.answers = [False, True]
 

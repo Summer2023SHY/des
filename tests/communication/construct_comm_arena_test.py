@@ -10,7 +10,7 @@ from structure_validation.automaton_validator import validate
 class TestConstructCommArena(unittest.TestCase):
     def setUp(self):
         self.filenames = [
-            "tests/communication/construct_comm_arena_test_cases/comm_test_1.in"
+            "tests/communication/construct_comm_arena_test_cases/comm_test_1_in.json"
         ]
 
         # First automaton for each test case
@@ -26,7 +26,7 @@ class TestConstructCommArena(unittest.TestCase):
         for i in range(len(self.automata)):
             # Get the answer
             ans = None
-            with open(self.filenames[i][:-3] + ".out") as f:
+            with open(self.filenames[i][:-7] + "out.json") as f:
                 ans = json.load(f)
 
             # Get the arena for the appropriate automaton

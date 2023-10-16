@@ -9,8 +9,8 @@ from basic_ops.coaccessible import get_coaccessible
 class TestCoaccessible(unittest.TestCase):
     def setUp(self):
         self.filenames = [
-            "tests/coaccessible/coaccessible_test_cases/coaccessible_1.in",
-            "tests/coaccessible/coaccessible_test_cases/coaccessible_2.in",
+            "tests/coaccessible/coaccessible_test_cases/coaccessible_1_in.json",
+            "tests/coaccessible/coaccessible_test_cases/coaccessible_2_in.json",
         ]
 
         # First automaton for each test case
@@ -26,7 +26,7 @@ class TestCoaccessible(unittest.TestCase):
         for i in range(len(self.automata)):
             # Get the answer
             ans = None
-            with open(self.filenames[i][:-3] + ".out") as f:
+            with open(self.filenames[i][:-7] + "out.json") as f:
                 ans = json.load(f)
 
             # Get the arena for the appropriate automaton

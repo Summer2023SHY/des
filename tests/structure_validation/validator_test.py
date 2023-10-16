@@ -7,17 +7,17 @@ from structure_validation.automaton_validator import validate
 class TestAutomatonValidation(unittest.TestCase):
     def setUp(self):
         filenames_good = [
-            "tests/product/product_test_cases/product_test_1a.in",
-            "tests/product/product_test_cases/product_test_1b.in",
-            "tests/product/product_test_cases/product_test_2a.in",
-            "tests/product/product_test_cases/product_test_2b.in",
+            "tests/product/product_test_cases/product_test_1a_in.json",
+            "tests/product/product_test_cases/product_test_1b_in.json",
+            "tests/product/product_test_cases/product_test_2a_in.json",
+            "tests/product/product_test_cases/product_test_2b_in.json",
         ]
 
         filenames_bad = [
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_1.in",
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_2.in",
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_3.in",
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_4.in",
+            "tests/structure_validation/structure_validation_test_cases/structure_validation_1_in.json",
+            "tests/structure_validation/structure_validation_test_cases/structure_validation_2_in.json",
+            "tests/structure_validation/structure_validation_test_cases/structure_validation_3_in.json",
+            "tests/structure_validation/structure_validation_test_cases/structure_validation_4_in.json",
         ]
 
         # First automaton for each test case

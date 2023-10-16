@@ -9,12 +9,12 @@ from basic_ops.product import product
 class TestProduct(unittest.TestCase):
     def setUp(self):
         filenames1 = [
-            "tests/product/product_test_cases/product_test_1a.in",
-            "tests/product/product_test_cases/product_test_2a.in",
+            "tests/product/product_test_cases/product_test_1a_in.json",
+            "tests/product/product_test_cases/product_test_2a_in.json",
         ]
         filenames2 = [
-            "tests/product/product_test_cases/product_test_1b.in",
-            "tests/product/product_test_cases/product_test_2b.in",
+            "tests/product/product_test_cases/product_test_1b_in.json",
+            "tests/product/product_test_cases/product_test_2b_in.json",
         ]
 
         # First automaton for each test case
@@ -37,7 +37,7 @@ class TestProduct(unittest.TestCase):
             # Get the answer
             ans = None
             with open(
-                "tests/product/product_test_cases/product_test_" + str(i + 1) + ".out"
+                "tests/product/product_test_cases/product_test_" + str(i + 1) + "_out.json"
             ) as f:
                 ans = json.load(f)
 

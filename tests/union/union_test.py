@@ -9,12 +9,12 @@ from basic_ops.union import union
 class TestUnion(unittest.TestCase):
     def setUp(self):
         filenames1 = [
-            "tests/union/union_test_cases/union_test_1a.in",
-            "tests/union/union_test_cases/union_test_2a.in",
+            "tests/union/union_test_cases/union_test_1a_in.json",
+            "tests/union/union_test_cases/union_test_2a_in.json",
         ]
         filenames2 = [
-            "tests/union/union_test_cases/union_test_1b.in",
-            "tests/union/union_test_cases/union_test_2b.in",
+            "tests/union/union_test_cases/union_test_1b_in.json",
+            "tests/union/union_test_cases/union_test_2b_in.json",
         ]
 
         # First automaton for each test case
@@ -37,7 +37,7 @@ class TestUnion(unittest.TestCase):
             # Get the answer
             ans = None
             with open(
-                "tests/union/union_test_cases/union_test_" + str(i + 1) + ".out"
+                "tests/union/union_test_cases/union_test_" + str(i + 1) + "_out.json"
             ) as f:
                 ans = json.load(f)
 

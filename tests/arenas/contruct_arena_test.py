@@ -9,8 +9,8 @@ from arenas.construct_arena import construct_arena
 class TestConstructArena(unittest.TestCase):
     def setUp(self):
         self.filenames = [
-            "tests/arenas/construct_arena_test_cases/arenas_test_1.in",
-            "tests/arenas/construct_arena_test_cases/arenas_test_3.in",
+            "tests/arenas/construct_arena_test_cases/arenas_test_1_in.json",
+            "tests/arenas/construct_arena_test_cases/arenas_test_3_in.json",
         ]
 
         # First automaton for each test case
@@ -26,7 +26,7 @@ class TestConstructArena(unittest.TestCase):
         for i in range(len(self.automata)):
             # Get the answer
             ans = None
-            with open(self.filenames[i][:-3] + ".out") as f:
+            with open(self.filenames[i][:-7] + "out.json") as f:
                 ans = json.load(f)
 
             # Get the arena for the appropriate automaton

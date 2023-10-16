@@ -9,10 +9,10 @@ from basic_ops.opacity import check_opacity
 class TestOpacity(unittest.TestCase):
     def setUp(self):
         self.filenames = [
-            "tests/opacity/opacity_test_cases/opacity_test_1.in",
-            "tests/opacity/opacity_test_cases/opacity_test_2.in",
-            "tests/opacity/opacity_test_cases/opacity_test_3.in",
-            "tests/opacity/opacity_test_cases/opacity_test_4.in",
+            "tests/opacity/opacity_test_cases/opacity_test_1_in.json",
+            "tests/opacity/opacity_test_cases/opacity_test_2_in.json",
+            "tests/opacity/opacity_test_cases/opacity_test_3_in.json",
+            "tests/opacity/opacity_test_cases/opacity_test_4_in.json",
         ]
 
         # First automaton for each test case
@@ -28,7 +28,7 @@ class TestOpacity(unittest.TestCase):
         for i in range(len(self.automata)):
             # Get the answer
             ans = None
-            with open(self.filenames[i][:-2] + "out") as f:
+            with open(self.filenames[i][:-7] + "out.json") as f:
                 ans = json.load(f)
 
             # Check if opaque
