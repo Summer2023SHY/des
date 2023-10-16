@@ -1,9 +1,13 @@
-from modular_opacity.heuristics import no_heuristic, most_shared_heuristic, least_new_heuristic
+from modular_opacity.heuristics import (
+    no_heuristic,
+    most_shared_heuristic,
+    least_new_heuristic,
+)
 
 from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
 
-menu_msg = '''
+menu_msg = """
 Select Heuristic Menu
 -------------------------------------------------------------------
 Pick the heuristic you want to use when combining automata in the
@@ -13,7 +17,9 @@ heuristics may be faster.
 0 No heuristic
 1 Most shared events
 2 Least new events
-'''
+"""
+
+
 def select_heuristic():
     """Opens a menu to select a heuristic for composing systems in a modular
     architecture to speed up operations.
@@ -29,7 +35,7 @@ def select_heuristic():
     display_menu(menu_msg)
 
     inpt = input()
-    while(True):
+    while True:
         if inpt in ["0"]:
             show_notification("Selected no heuristic")
             return no_heuristic

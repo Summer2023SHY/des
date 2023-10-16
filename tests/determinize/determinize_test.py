@@ -36,4 +36,6 @@ class TestDeterminize(unittest.TestCase):
             # helper.pretty_print(ans)
 
             # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(converter.convert_to_sets(result), converter.convert_to_sets(ans))
+            self.assertEqual(
+                converter.convert_to_sets(result), converter.convert_to_sets(ans)
+            )

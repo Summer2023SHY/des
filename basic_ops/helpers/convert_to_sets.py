@@ -26,10 +26,10 @@ def convert_to_sets(structure: list | dict) -> set | dict:
 
     >>> structure = {
         "events": {
-    		"all": ["a", "c"],
-    		"controllable": [
-    			["a"]
-    		],
+                "all": ["a", "c"],
+                "controllable": [
+                        ["a"]
+                ],
         },
         "states": {
             "all": ["q1", "q2", "q3"],

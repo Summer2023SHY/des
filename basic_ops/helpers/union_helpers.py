@@ -58,11 +58,13 @@ def union_events(automata: list[Automaton]) -> dict[str, list[str]]:
         "all": list(all_events),
         # Extract the list of sets into a list of lists
         "controllable": [list(events) for events in cont_events],
-        "observable": [list(events) for events in obs_events]
+        "observable": [list(events) for events in obs_events],
     }
 
 
-def union_transitions(automata: list[Automaton], all_events: list[str]) -> dict[str, Any]:
+def union_transitions(
+    automata: list[Automaton], all_events: list[str]
+) -> dict[str, Any]:
     """Unions the transitions of multiple automata. That is, a transition is
     defined from a state if and only if all automata that have such an event
     defined have a transition defined. This also applies when only one
@@ -160,7 +162,9 @@ def union_transitions(automata: list[Automaton], all_events: list[str]) -> dict[
                 # Get a string state for use with sets in python
                 next_strings = [helper.format_state(nxt) for nxt in next_states]
                 # When adding transitions, convert to string format
-                transitions[helper.format_transition(helper.format_state(curr), event)] = next_strings
+                transitions[
+                    helper.format_transition(helper.format_state(curr), event)
+                ] = next_strings
                 for i in range(len(next_strings)):
                     if next_strings[i] not in visited:
                         # Then add this state to process next
@@ -171,10 +175,7 @@ def union_transitions(automata: list[Automaton], all_events: list[str]) -> dict[
             "all": list(visited),
             "initial": [helper.format_state(s) for s in initial_states],
             "bad": [],
-            "marked": marked
+            "marked": marked,
         },
-        "transitions": {
-            "all": transitions,
-            "bad": {}
-        }
+        "transitions": {"all": transitions, "bad": {}},
     }

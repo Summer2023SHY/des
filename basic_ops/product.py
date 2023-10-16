@@ -44,9 +44,6 @@ def product(automata: list[Automaton]) -> Automaton:
     """
     events = product_events(automata)
     transitions = product_transitions(automata, events["all"])
-    new_automaton = {
-        "events": events,
-        **transitions
-    }
+    new_automaton = {"events": events, **transitions}
 
     return new_automaton

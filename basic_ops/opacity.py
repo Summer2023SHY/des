@@ -1,7 +1,8 @@
 from basic_ops.determinize import determinize
 from structure_validation.automaton_validator import Automaton
 
-def check_opacity(automaton: Automaton, observer: int=0) -> list[bool]:
+
+def check_opacity(automaton: Automaton, observer: int = 0) -> list[bool]:
     """Verifies current state opacity for the given automaton with respect to
     a certain agent's observability. That is, if every word leading to a bad
     state has another word with the same projection leading to a good state,
@@ -23,6 +24,7 @@ def check_opacity(automaton: Automaton, observer: int=0) -> list[bool]:
     """
     det = determinize(automaton, observer)
     return [len(m) == 0 for m in det["states"]["marked"]]
+
 
 def check_opacity_already_determinized(automaton: Automaton) -> list[bool]:
     """Verifies current state opacity for the given automaton, assuming that the

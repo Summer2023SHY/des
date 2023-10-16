@@ -11,7 +11,7 @@ from time import sleep
 
 
 # The message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 DESwiz Main Menu
 -------------------------------------------------------------------
 Type one of the below commands
@@ -24,7 +24,7 @@ c: close automata
 v: visualize automata
 d: change default settings
 e: exit
-'''
+"""
 
 
 def main_menu(next_screens: list, automata: list[Automaton], temp_dir: str) -> None:

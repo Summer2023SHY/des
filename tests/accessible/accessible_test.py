@@ -10,7 +10,7 @@ class TestAccessible(unittest.TestCase):
         self.filenames = [
             "tests/accessible/accessible_test_cases/accessible_test_1.in",
             "tests/accessible/accessible_test_cases/accessible_test_2.in",
-            "tests/accessible/accessible_test_cases/accessible_test_3.in"
+            "tests/accessible/accessible_test_cases/accessible_test_3.in",
         ]
 
         # First automaton for each test case
@@ -37,4 +37,6 @@ class TestAccessible(unittest.TestCase):
             # helper.pretty_print(result)
 
             # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(converter.convert_to_sets(result), converter.convert_to_sets(ans))
+            self.assertEqual(
+                converter.convert_to_sets(result), converter.convert_to_sets(ans)
+            )

@@ -4,11 +4,11 @@ from structure_validation.automaton_validator import Automaton
 
 
 # The message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 Name Your Automaton
 -------------------------------------------------------------------
 Give your automaton a name and press enter
-'''
+"""
 
 
 def name_automaton_menu(automata: list[Automaton], automaton: Automaton):

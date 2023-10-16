@@ -1,10 +1,11 @@
-
 from basic_ops.helpers.string_helpers import format_transition, format_state_set
 from basic_ops.helpers.state_helpers import check_marked_inverse
 from structure_validation.automaton_validator import Automaton
 
 
-def get_unobservable_reach(automaton: Automaton, states: list[str], alphabet: list[str]) -> list[str]:
+def get_unobservable_reach(
+    automaton: Automaton, states: list[str], alphabet: list[str]
+) -> list[str]:
     """Gets all states that are accessible from some macro-state using
     unobservable events (i.e., events that are not part of the input alphabet).
 
@@ -50,7 +51,9 @@ def get_unobservable_reach(automaton: Automaton, states: list[str], alphabet: li
     return list(accessible)
 
 
-def determinize_transitions(automaton: Automaton, alphabet: list[str]) -> dict[str, dict[str, any]]:
+def determinize_transitions(
+    automaton: Automaton, alphabet: list[str]
+) -> dict[str, dict[str, any]]:
     """Creates the transition function and state space for the determinized
     version (Det(A)) of the input automaton (A). That is, the initial
     macro-state of Det(A) is defined as the set containing the initial state of
@@ -97,7 +100,9 @@ def determinize_transitions(automaton: Automaton, alphabet: list[str]) -> dict[s
     old_transitions = automaton["transitions"]["all"]
 
     # First, get the initial state
-    initial_state = get_unobservable_reach(automaton, automaton["states"]["initial"], alphabet)
+    initial_state = get_unobservable_reach(
+        automaton, automaton["states"]["initial"], alphabet
+    )
     initial_state.sort()
     initial_state_str = format_state_set(initial_state)
     visited = set([initial_state_str])
@@ -125,7 +130,11 @@ def determinize_transitions(automaton: Automaton, alphabet: list[str]) -> dict[s
                 # If transition exists, add destination's unobservable reach to
                 # nxt
                 if trans in old_transitions:
-                    nxt.update(get_unobservable_reach(automaton, old_transitions[trans], alphabet))
+                    nxt.update(
+                        get_unobservable_reach(
+                            automaton, old_transitions[trans], alphabet
+                        )
+                    )
             # If the event is valid, then define it
             if len(nxt) > 0:
                 # Get nxt in sorted form
@@ -145,10 +154,7 @@ def determinize_transitions(automaton: Automaton, alphabet: list[str]) -> dict[s
             "all": list(visited),
             "initial": [initial_state_str],
             "bad": [],
-            "marked": marked
+            "marked": marked,
         },
-        "transitions": {
-            "all": transitions,
-            "bad": {}
-        }
+        "transitions": {"all": transitions, "bad": {}},
     }

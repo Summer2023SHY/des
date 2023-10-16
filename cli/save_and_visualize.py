@@ -8,7 +8,7 @@ import global_settings
 from structure_validation.automaton_validator import Automaton
 
 
-def save_temp(automaton: Automaton, temp_dir: str, must_show: bool=False) -> None:
+def save_temp(automaton: Automaton, temp_dir: str, must_show: bool = False) -> None:
     """Saves an automaton to the temporary directory provided and opens it in a
     PDF viewer.
     If the user has turned off auto-vis, then nothing happens here.
@@ -31,7 +31,7 @@ def save_temp(automaton: Automaton, temp_dir: str, must_show: bool=False) -> Non
         while os.path.isfile(path):
             index += 1
             path = temp_dir + "/" + automaton["name"] + str(index)
-        with open(path + ".json", 'w') as f:  # writing JSON object
+        with open(path + ".json", "w") as f:  # writing JSON object
             dump(automaton, f, sort_keys=True, indent=4)
         visualize(automaton, path)
 
@@ -73,15 +73,14 @@ def save(automaton: Automaton) -> None:
     """
     show_notification("Select a location to save " + automaton["name"])
     location = filedialog.asksaveasfilename(
-        title="Automaton Export Filename",
-        defaultextension="json"
+        title="Automaton Export Filename", defaultextension="json"
     )
     # If selected a location, save it
     if len(location) == 0:
         show_error("No location given")
         return False
     else:
-        with open(location, 'w') as f:  # writing JSON object
+        with open(location, "w") as f:  # writing JSON object
             dump(automaton, f, sort_keys=True, indent=4)
 
         # Remove the .json extension

@@ -4,7 +4,7 @@ from cli.display.message import show_notification, show_error
 
 
 # Message for the menu
-menu_msg = '''
+menu_msg = """
 Choose if GraphViz Should Auto-Visualize
 -------------------------------------------------------------------
 If you choose "y", all automata imported and generated will
@@ -14,7 +14,7 @@ explicitly select the visualize option from the main menu.
 y: automatically visualize
 n: do not automatically visualize
 e: exit
-'''
+"""
 
 menu_option = "graphviz_auto_vis"
 
@@ -45,5 +45,3 @@ def choose_auto_vis() -> bool:
             return None
         else:
             show_error("Command not recognized")
-
-

@@ -15,7 +15,6 @@ def mark_bad_v2s(attractor):
     bad_added = False
     all_trans = attractor["transitions"]["v2"]
     for v2_state in attractor["states"]["v2"]:
-
         # Don't worry about this state if already bad
         if v2_state in attractor["states"]["bad-v2"]:
             continue
@@ -57,7 +56,6 @@ def mark_bad_v1s(attractor):
     bad_added = False
     all_trans = attractor["transitions"]["v1"]
     for v1_state in attractor["states"]["v1"]:
-
         # Don't worry about this state if already bad
         if v1_state in attractor["states"]["bad-v1"]:
             continue

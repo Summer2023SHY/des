@@ -4,13 +4,13 @@ from cli.display.message import show_notification, show_error
 
 
 # Message for the menu
-menu_msg = '''
+menu_msg = """
 Choose GraphViz File Output Type
 -------------------------------------------------------------------
 Type the index of the option you want to choose and press enter.
 -------------------------------------------------------------------
-'''
-menu_msg_2 = 'e: exit'
+"""
+menu_msg_2 = "e: exit"
 file_types = ["pdf", "svg", "jpeg", "png"]
 menu_option = "graphviz_file_type"
 
@@ -61,4 +61,3 @@ def choose_gv_file_type() -> int | None:
                 return None
             else:
                 show_error("Command not recognized")
-

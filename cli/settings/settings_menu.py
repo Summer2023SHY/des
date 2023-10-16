@@ -5,7 +5,7 @@ from cli.settings.gv_auto_vis import choose_auto_vis
 
 
 # The message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 Settings Menu
 -------------------------------------------------------------------
 Type one of the below commands to change default settings
@@ -14,7 +14,7 @@ f: change the default file output type for GraphViz visualization
    of automata
 a: enable/disable auto-visualization of automata on import and
    generation
-'''
+"""
 
 
 def settings_menu() -> None:

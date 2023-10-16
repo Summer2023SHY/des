@@ -42,8 +42,7 @@ def get_accessible(automaton: Automaton) -> Automaton:
     # Update the states
     automaton["states"]["all"] = sorted(accessible_states)
     automaton["states"]["marked"] = [
-        [s for s in x if s in accessible_states]
-        for x in automaton["states"]["marked"]
+        [s for s in x if s in accessible_states] for x in automaton["states"]["marked"]
     ]
     # Deal with all the various possible types of states
     all_state_types = ["bad", "v1", "v2", "bad-v1", "bad-v2"]

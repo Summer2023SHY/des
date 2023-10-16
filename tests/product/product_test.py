@@ -9,11 +9,11 @@ class TestProduct(unittest.TestCase):
     def setUp(self):
         filenames1 = [
             "tests/product/product_test_cases/product_test_1a.in",
-            "tests/product/product_test_cases/product_test_2a.in"
+            "tests/product/product_test_cases/product_test_2a.in",
         ]
         filenames2 = [
             "tests/product/product_test_cases/product_test_1b.in",
-            "tests/product/product_test_cases/product_test_2b.in"
+            "tests/product/product_test_cases/product_test_2b.in",
         ]
 
         # First automaton for each test case
@@ -35,7 +35,9 @@ class TestProduct(unittest.TestCase):
         for i in range(len(self.automata1)):
             # Get the answer
             ans = None
-            with open("tests/product/product_test_cases/product_test_" + str(i + 1) + ".out") as f:
+            with open(
+                "tests/product/product_test_cases/product_test_" + str(i + 1) + ".out"
+            ) as f:
                 ans = json.load(f)
 
             # Get the product of the appropriate automata
@@ -46,4 +48,6 @@ class TestProduct(unittest.TestCase):
             # helper.pretty_print(ans)
 
             # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(converter.convert_to_sets(result), converter.convert_to_sets(ans))
+            self.assertEqual(
+                converter.convert_to_sets(result), converter.convert_to_sets(ans)
+            )

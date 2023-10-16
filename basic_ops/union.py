@@ -46,6 +46,8 @@ def union(automata: list[Automaton]) -> Automaton:
     # First, get all events in the new automaton by unioning sets
     new_automaton["events"] = helper.union_events(automata)
     # Then, update the transition function and add all of the states
-    new_automaton.update(helper.union_transitions(automata, new_automaton["events"]["all"]))
+    new_automaton.update(
+        helper.union_transitions(automata, new_automaton["events"]["all"])
+    )
 
     return new_automaton

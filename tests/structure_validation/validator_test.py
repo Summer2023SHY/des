@@ -9,7 +9,7 @@ class TestAutomatonValidation(unittest.TestCase):
             "tests/product/product_test_cases/product_test_1a.in",
             "tests/product/product_test_cases/product_test_1b.in",
             "tests/product/product_test_cases/product_test_2a.in",
-            "tests/product/product_test_cases/product_test_2b.in"
+            "tests/product/product_test_cases/product_test_2b.in",
         ]
 
         filenames_bad = [

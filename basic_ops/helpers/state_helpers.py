@@ -1,6 +1,7 @@
 from structure_validation.automaton_validator import Automaton
 
-def get_initial(automata: Automaton, initial_so_far: list[str]=[]) -> list[str]:
+
+def get_initial(automata: Automaton, initial_so_far: list[str] = []) -> list[str]:
     """Gets all possible combinations of intitial states for two the
     automata. It does this recursively to find all combinations.
 
@@ -48,7 +49,9 @@ def get_initial(automata: Automaton, initial_so_far: list[str]=[]) -> list[str]:
     return result
 
 
-def check_marked(automata: list[Automaton], state: list[str], agent_index: int=0) -> bool:
+def check_marked(
+    automata: list[Automaton], state: list[str], agent_index: int = 0
+) -> bool:
     """Checks if a state should be marked, where the state is a macro-state
     composed of states from the automata passed as a parameter. If at least one
     automaton has the state marked, returns true. It only does this with respect
@@ -77,7 +80,9 @@ def check_marked(automata: list[Automaton], state: list[str], agent_index: int=0
     return False
 
 
-def check_marked_inverse(automaton: Automaton, state: list[str], agent_index: int=0) -> bool:
+def check_marked_inverse(
+    automaton: Automaton, state: list[str], agent_index: int = 0
+) -> bool:
     """Checks if a state should be marked, where the state is a macro-state
     composed of states from the SINGLE automaton passed as a parameter. If at
     least one component state is NOT marked, returns false. It only does this

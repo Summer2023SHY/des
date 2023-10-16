@@ -11,7 +11,7 @@ class TestOpacity(unittest.TestCase):
             "tests/opacity/opacity_test_cases/opacity_test_1.in",
             "tests/opacity/opacity_test_cases/opacity_test_2.in",
             "tests/opacity/opacity_test_cases/opacity_test_3.in",
-            "tests/opacity/opacity_test_cases/opacity_test_4.in"
+            "tests/opacity/opacity_test_cases/opacity_test_4.in",
         ]
 
         # First automaton for each test case
@@ -38,4 +38,6 @@ class TestOpacity(unittest.TestCase):
             # helper.pretty_print(ans)
 
             # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(converter.convert_to_sets(result), converter.convert_to_sets(ans))
+            self.assertEqual(
+                converter.convert_to_sets(result), converter.convert_to_sets(ans)
+            )

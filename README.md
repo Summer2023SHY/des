@@ -1,6 +1,7 @@
 # DESwiz
 
 [![CI](https://github.com/Summer2023SHY/des/actions/workflows/ci.yml/badge.svg)](https://github.com/Summer2023SHY/des/actions/workflows/ci.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 DESwiz is a discrete event system tool for working with finite state automata
 and other systems. It has been designed as proof-of-concept for academic works

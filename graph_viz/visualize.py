@@ -5,6 +5,7 @@ import global_settings
 
 from structure_validation.automaton_validator import Automaton
 
+
 def __identify_secret(automaton: Automaton, state: str):
     """Identifies the observers for which the state is a secret state and
     returns a string describing the indexes of those observers.
@@ -42,7 +43,7 @@ def __identify_secret(automaton: Automaton, state: str):
         return "\nSecret for agent(s): " + marked[:-2]
 
 
-def visualize(automaton: Automaton, location: str=None, view: bool=True):
+def visualize(automaton: Automaton, location: str = None, view: bool = True):
     """Turns an automaton into a viewable PDF and saves it to the location.
     It also opens the default PDF viewer.
 
@@ -70,14 +71,38 @@ def visualize(automaton: Automaton, location: str=None, view: bool=True):
 
         if "v2" in automaton["states"] and state in automaton["states"]["v2"]:
             if state in automaton["states"]["bad"]:
-                dot.node(state, label=state+secret, shape="box", color="red", peripheries=num_circles)
+                dot.node(
+                    state,
+                    label=state + secret,
+                    shape="box",
+                    color="red",
+                    peripheries=num_circles,
+                )
             else:
-                dot.node(state, label=state+secret, shape="box", color="black", peripheries=num_circles)
+                dot.node(
+                    state,
+                    label=state + secret,
+                    shape="box",
+                    color="black",
+                    peripheries=num_circles,
+                )
         else:
             if state in automaton["states"]["bad"]:
-                dot.node(state, label=state+secret, shape="ellipse", color="red", peripheries=num_circles)
+                dot.node(
+                    state,
+                    label=state + secret,
+                    shape="ellipse",
+                    color="red",
+                    peripheries=num_circles,
+                )
             else:
-                dot.node(state, label=state+secret, shape="ellipse", color="black", peripheries=num_circles)
+                dot.node(
+                    state,
+                    label=state + secret,
+                    shape="ellipse",
+                    color="black",
+                    peripheries=num_circles,
+                )
 
     for state in automaton["states"]["initial"]:
         invisible = state + "-invisible"

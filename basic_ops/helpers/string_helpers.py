@@ -2,7 +2,8 @@ from json import dumps
 
 from structure_validation.automaton_validator import Automaton
 
-def get_states(states: list[str], chosen_so_far: list=[]) -> list[str]:
+
+def get_states(states: list[str], chosen_so_far: list = []) -> list[str]:
     """A list of current states for multiple automata in a composed system (i.e.,
     a "macro-state") has some states which are non-deterministic: that is, the
     state might be ["q1", ["q2", "q3"]]. We want to find all distinct states,
@@ -98,24 +99,25 @@ def format_state_set(states: list[str]) -> str:
 
 
 def format_event_vector(events: list[str]) -> str:
-	"""Formats an event vector into a format with angle brackets.
+    """Formats an event vector into a format with angle brackets.
 
-	Parameters
-	----------
-	events : list
-		List of strings representing the events to put together
+    Parameters
+    ----------
+    events : list
+            List of strings representing the events to put together
 
-	Returns
-	-------
-	str
-		The string representing the event
-	"""
-	s = "["
-	for e in events:
-		s += e + ", "
-	s = s[:-2]
-	s += "]"
-	return s
+    Returns
+    -------
+    str
+            The string representing the event
+    """
+    s = "["
+    for e in events:
+        s += e + ", "
+    s = s[:-2]
+    s += "]"
+    return s
+
 
 def format_transition(state: str, event: str) -> str:
     """Formats a state and event into the proper format for a transition,

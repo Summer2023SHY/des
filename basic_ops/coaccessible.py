@@ -50,8 +50,7 @@ def get_coaccessible(automaton: Automaton) -> Automaton:
     # Update the states
     automaton["states"]["all"] = sorted(accessible_states)
     automaton["states"]["marked"] = [
-        [s for s in x if s in accessible_states]
-        for x in automaton["states"]["marked"]
+        [s for s in x if s in accessible_states] for x in automaton["states"]["marked"]
     ]
     # Deal with all the various possible types of states
     all_state_types = ["bad", "initial", "v1", "v2", "bad-v1", "bad-v2"]
@@ -64,8 +63,7 @@ def get_coaccessible(automaton: Automaton) -> Automaton:
     automaton["transitions"]["all"] = accessible_trans
     # Deal with all various possible types of transitions
     all_trans_types = ["v1", "v2", "bad"]
-    trans_types = [x for x in all_trans_types if
-                   x in automaton["transitions"]]
+    trans_types = [x for x in all_trans_types if x in automaton["transitions"]]
     for trans_type in trans_types:
         updated_trans = dict()
         for k, v in automaton["transitions"][trans_type].items():

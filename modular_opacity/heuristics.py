@@ -1,6 +1,9 @@
 from structure_validation.automaton_validator import Automaton
 
-def no_heuristic(automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]) -> list[Automaton]:
+
+def no_heuristic(
+    automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]
+) -> list[Automaton]:
     """Orders the automata to compose with the automaton with no heuristic (aside
     from prioritizing automata that have not been verified).
 
@@ -20,7 +23,10 @@ def no_heuristic(automaton: Automaton, unverified: list[Automaton], verified: li
     """
     return [*unverified, *verified]
 
-def most_shared_heuristic(automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]) -> list[Automaton]:
+
+def most_shared_heuristic(
+    automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]
+) -> list[Automaton]:
     """Orders the automata to compose with the automaton by those that share the
     most events with the automaton.
 
@@ -44,12 +50,15 @@ def most_shared_heuristic(automaton: Automaton, unverified: list[Automaton], ver
         other_events = set(a["events"]["all"])
         return len(events.intersection(events))
 
-    unverified.sort(key = sort_by_shared, reverse = True)
-    verified.sort(key = sort_by_shared, reverse = True)
+    unverified.sort(key=sort_by_shared, reverse=True)
+    verified.sort(key=sort_by_shared, reverse=True)
 
     return [*unverified, *verified]
 
-def least_new_heuristic(automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]) -> list[Automaton]:
+
+def least_new_heuristic(
+    automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]
+) -> list[Automaton]:
     """Orders the automata to compose with the automaton by those that introduce
     the fewest events to the automaton.
 
@@ -74,7 +83,7 @@ def least_new_heuristic(automaton: Automaton, unverified: list[Automaton], verif
         return len(other_events.difference(events))
 
     # Sort ascending by least new events introduced
-    unverified.sort(key = sort_by_least_new)
-    verified.sort(key = sort_by_least_new)
+    unverified.sort(key=sort_by_least_new)
+    verified.sort(key=sort_by_least_new)
 
     return [*unverified, *verified]

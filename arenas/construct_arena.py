@@ -47,9 +47,7 @@ def construct_arena(automaton: Automaton):
     # Get the three observers
     all_events = automaton["events"]["all"]
     obs_events = automaton["events"]["observable"]
-    all_automata = [
-        determinize(automaton, i) for i in range(len(obs_events))
-    ]
+    all_automata = [determinize(automaton, i) for i in range(len(obs_events))]
     all_automata.insert(0, automaton)
 
     bad_states = []
@@ -95,8 +93,15 @@ def construct_arena(automaton: Automaton):
             # If we haven't already visited this v2 state, start working on it!
             if curr_v2_str not in v2_visited:
                 v2_visited.add(curr_v2_str)
-                add_v2_transitions(all_automata, curr, event, v2_trans,
-                                   v2_visited, v1_visited, v1_queue)
+                add_v2_transitions(
+                    all_automata,
+                    curr,
+                    event,
+                    v2_trans,
+                    v2_visited,
+                    v1_visited,
+                    v1_queue,
+                )
 
     # The language includes both the new event types we added and the events
     # already visible to the controller
@@ -107,7 +112,7 @@ def construct_arena(automaton: Automaton):
         "events": {
             "all": all_events,  # The events start off identical
             "controllable": [list(new_events)],  # In arena, control just new
-            "observable": [obs_events]
+            "observable": [obs_events],
         },
         "states": {
             "all": list(v1_visited.union(v2_visited)),
@@ -116,12 +121,12 @@ def construct_arena(automaton: Automaton):
             "initial": [initial_str],
             "marked": [bad_states],
             "bad": bad_states,
-            "secrets": secrets  # Indicates which agent sees what in composition
+            "secrets": secrets,  # Indicates which agent sees what in composition
         },
         "transitions": {
             "all": {**v1_trans, **v2_trans},
             "v1": v1_trans,
             "v2": v2_trans,
-            "bad": {}
-        }
+            "bad": {},
+        },
     }

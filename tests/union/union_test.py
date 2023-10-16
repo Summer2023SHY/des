@@ -6,15 +6,14 @@ from basic_ops.union import union
 
 
 class TestUnion(unittest.TestCase):
-
     def setUp(self):
         filenames1 = [
             "tests/union/union_test_cases/union_test_1a.in",
-            "tests/union/union_test_cases/union_test_2a.in"
+            "tests/union/union_test_cases/union_test_2a.in",
         ]
         filenames2 = [
             "tests/union/union_test_cases/union_test_1b.in",
-            "tests/union/union_test_cases/union_test_2b.in"
+            "tests/union/union_test_cases/union_test_2b.in",
         ]
 
         # First automaton for each test case
@@ -36,7 +35,9 @@ class TestUnion(unittest.TestCase):
         for i in range(len(self.automata1)):
             # Get the answer
             ans = None
-            with open("tests/union/union_test_cases/union_test_" + str(i + 1) + ".out") as f:
+            with open(
+                "tests/union/union_test_cases/union_test_" + str(i + 1) + ".out"
+            ) as f:
                 ans = json.load(f)
 
             # Get the product of the appropriate automata
@@ -47,7 +48,9 @@ class TestUnion(unittest.TestCase):
             # helper.pretty_print(ans)
 
             # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(converter.convert_to_sets(result), converter.convert_to_sets(ans))
+            self.assertEqual(
+                converter.convert_to_sets(result), converter.convert_to_sets(ans)
+            )
 
 
 if __name__ == "__main__":

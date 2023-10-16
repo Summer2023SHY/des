@@ -2,6 +2,7 @@ from typing import Any
 
 from structure_validation.automaton_validator import Automaton
 
+
 def intersect_events(automaton: Automaton, alphabet: list[str]) -> dict[str, list[Any]]:
     """Ensures that the automaton only has events in the provided alphabet.
 
@@ -50,8 +51,10 @@ def intersect_events(automaton: Automaton, alphabet: list[str]) -> dict[str, lis
     events = automaton["events"]
     return {
         "all": list(set(events["all"]).intersection(allowed)),
-        "controllable": [list(set(x).intersection(allowed)) for x in
-                         events["controllable"]],
-        "observable": [list(set(x).intersection(allowed)) for x in
-                       events["observable"]]
+        "controllable": [
+            list(set(x).intersection(allowed)) for x in events["controllable"]
+        ],
+        "observable": [
+            list(set(x).intersection(allowed)) for x in events["observable"]
+        ],
     }

@@ -12,7 +12,10 @@ from modular_opacity.modular_opacity_verification import check_modular_opacity
 from communication.construct_communication_arena import construct_communication_arena
 from structure_validation.automaton_validator import Automaton
 
-from cli.selection.select_automata_menu import select_automata_menu, select_automaton_menu
+from cli.selection.select_automata_menu import (
+    select_automata_menu,
+    select_automaton_menu,
+)
 from cli.selection.select_observer_menu import select_observer_menu
 from cli.selection.select_secret_menu import select_secret_menu
 from cli.menus.name_automaton_menu import name_automaton_menu
@@ -23,7 +26,7 @@ from cli.menus.select_heuristic import select_heuristic
 
 
 # The message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 Operations Menu
 -------------------------------------------------------------------
 Type one of the below commands
@@ -53,7 +56,7 @@ om: check current state opacity for a modular system
 Arenas for Communication with Multiple Agents ops
 -------------------------------------------------------------------
 bca: build communication arena from (Ricker, 2013)
-'''
+"""
 
 
 def __save(automata: list[Automaton], automaton: Automaton, temp_dir: str):
@@ -111,8 +114,11 @@ def ops_menu(automata: list[Automaton], temp_dir: str):
             observer = select_observer_menu(selected)
             if observer is not None:
                 result = check_opacity(selected, observer)
-                print("With respect to the observer " + str(observer) +
-                      ", the system is opaque")
+                print(
+                    "With respect to the observer "
+                    + str(observer)
+                    + ", the system is opaque"
+                )
                 print("for the following secrets:")
                 print([i for i, x in enumerate(result) if x is True])
                 print("The system is not opaque for the following secrets:")
@@ -169,12 +175,18 @@ def ops_menu(automata: list[Automaton], temp_dir: str):
             result = get_controllable(construct_attractor(selected))
             __save(automata, result, temp_dir)
     elif inpt in ["om"]:
-        show_notification("With this operation, we assume the\nattacker can see all items in the\nshared alphabet,as per Enforcing\nOpacity in Modular Systems (2020)")
-        selected = select_automata_menu(automata, 1, "Checking Opacity for Modular Systems")
+        show_notification(
+            "With this operation, we assume the\nattacker can see all items in the\nshared alphabet,as per Enforcing\nOpacity in Modular Systems (2020)"
+        )
+        selected = select_automata_menu(
+            automata, 1, "Checking Opacity for Modular Systems"
+        )
         if selected is not None:
             heuristic = select_heuristic()
-            result = check_modular_opacity(selected, heuristic = heuristic)
-            show_notification("The modular system is " + ("opaque" if result else "not opaque"))
+            result = check_modular_opacity(selected, heuristic=heuristic)
+            show_notification(
+                "The modular system is " + ("opaque" if result else "not opaque")
+            )
     elif inpt in ["bca"]:
         selected = select_automaton_menu(automata, "Constructing Communication Arena")
         if selected is not None:

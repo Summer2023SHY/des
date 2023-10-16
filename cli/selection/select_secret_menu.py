@@ -4,22 +4,22 @@ from structure_validation.automaton_validator import Automaton
 
 
 # Part 1 of the message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 Select Secret Menu
 -------------------------------------------------------------------
-Type the index of your desired secret, from 0 to '''
+Type the index of your desired secret, from 0 to """
 
 # Part 2 of the message describing what the menu is for
-menu_msg_2 = ''' inclusive:
+menu_msg_2 = """ inclusive:
 0 is the system controller
-'''
+"""
 
 # Part 3 of the message describing what the menu is for
-menu_msg_3 = '''
+menu_msg_3 = """
 -------------------------------------------------------------------
 #: select the index
 e: exit without saving
-'''
+"""
 
 
 def select_secret_menu(automaton: Automaton) -> int:

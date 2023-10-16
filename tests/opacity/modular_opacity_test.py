@@ -6,6 +6,7 @@ from modular_opacity.modular_opacity_verification import check_modular_opacity
 from structure_validation.automaton_validator import validate
 from modular_opacity.heuristics import most_shared_heuristic, least_new_heuristic
 
+
 class TestModularOpacity(unittest.TestCase):
     def setUp(self):
         self.filenames = [
@@ -14,7 +15,7 @@ class TestModularOpacity(unittest.TestCase):
             "tests/opacity/modular_opacity_test_cases/modular_test_1-2.in",
             # Test case that DOES work
             "tests/opacity/modular_opacity_test_cases/modular_test_2-1.in",
-            "tests/opacity/modular_opacity_test_cases/modular_test_2-2.in"
+            "tests/opacity/modular_opacity_test_cases/modular_test_2-2.in",
         ]
         self.answers = [False, True]
 
@@ -31,9 +32,17 @@ class TestModularOpacity(unittest.TestCase):
         """
         for i in range(len(self.automata) // 2):
             # Check if opaque
-            result = check_modular_opacity([self.automata[2*i], self.automata[2*i+1]])
+            result = check_modular_opacity(
+                [self.automata[2 * i], self.automata[2 * i + 1]]
+            )
             self.assertEqual(result, self.answers[i])
-            result = check_modular_opacity([self.automata[2*i], self.automata[2*i+1]], heuristic = most_shared_heuristic)
+            result = check_modular_opacity(
+                [self.automata[2 * i], self.automata[2 * i + 1]],
+                heuristic=most_shared_heuristic,
+            )
             self.assertEqual(result, self.answers[i])
-            result = check_modular_opacity([self.automata[2*i], self.automata[2*i+1]], heuristic = least_new_heuristic)
+            result = check_modular_opacity(
+                [self.automata[2 * i], self.automata[2 * i + 1]],
+                heuristic=least_new_heuristic,
+            )
             self.assertEqual(result, self.answers[i])

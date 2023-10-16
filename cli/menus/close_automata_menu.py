@@ -6,7 +6,7 @@ from structure_validation.automaton_validator import Automaton
 
 
 # The message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 Close Automata Menu
 -------------------------------------------------------------------
 Type one of the below commands
@@ -16,7 +16,7 @@ Select all automata you wish to close
 e: exit without closing the selected automata
 c: close the selected automata without saving
 s: save the selected automata and close them
-'''
+"""
 
 
 def close_automata_menu(automata: list[Automaton]) -> None:
@@ -41,7 +41,6 @@ def close_automata_menu(automata: list[Automaton]) -> None:
 
     # Keep on selecting automata to close until choose to stop
     while True:
-
         # Print what we've selected so far
         print_selected(automata, selected)
         inpt = input()
@@ -54,22 +53,18 @@ def close_automata_menu(automata: list[Automaton]) -> None:
             # Else, see if we want to exit, close, or save
             inpt = inpt.lower()
             if inpt in ["e", "exit"]:
-                return None # Exit without closing
+                return None  # Exit without closing
             elif inpt in ["c", "close"]:
-
                 # Close all automata selected
-                result = [automata[i] for i in range(num_options) if
-                          selected[i]]
+                result = [automata[i] for i in range(num_options) if selected[i]]
                 for item in result:
                     automata.remove(item)
                 sel = [item["name"] for item in result]
                 show_notification("The following were closed:\n" + str(sel))
                 return
             elif inpt in ["s", "save"]:
-
                 # Save all automata selected and close all those not failed
-                result = [automata[i] for i in range(num_options) if
-                          selected[i]]
+                result = [automata[i] for i in range(num_options) if selected[i]]
 
                 # Keep track of those that fail to save, and don't close them
                 failed = []
@@ -86,4 +81,3 @@ def close_automata_menu(automata: list[Automaton]) -> None:
                 show_notification("The following were saved and closed:\n" + str(sel))
             else:
                 show_error("Command not recognized")
-

@@ -3,7 +3,7 @@ from basic_ops.helpers.determinization_helpers import determinize_transitions
 from structure_validation.automaton_validator import Automaton
 
 
-def determinize(automaton: Automaton, alphabet: int=0) -> Automaton:
+def determinize(automaton: Automaton, alphabet: int = 0) -> Automaton:
     """Computes the determinized version of the automaton.
     That is, it first determines the initial macro-state, composed of the
     unobservable reach from the original intial state (with respect to the
@@ -43,7 +43,4 @@ def determinize(automaton: Automaton, alphabet: int=0) -> Automaton:
     events = intersect_events(automaton, alphabet)
     # Then, update the transition function and add all of the states
     transitions = determinize_transitions(automaton, alphabet)
-    return {
-        "events": events,
-        **transitions
-    }
+    return {"events": events, **transitions}

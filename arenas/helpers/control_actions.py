@@ -57,9 +57,11 @@ def get_valid_control_actions(automaton, state, observable_events):
                 valid_ucevents.append(event)
 
     # Now that we have all events, get the power set
-    all_actions = list(chain.from_iterable(
-        combinations(valid_cevents, x) for x in range(0, len(valid_cevents) + 1)
-    ))
+    all_actions = list(
+        chain.from_iterable(
+            combinations(valid_cevents, x) for x in range(0, len(valid_cevents) + 1)
+        )
+    )
 
     # Convert to lists
     events = [list(x) + valid_ucevents for x in all_actions]

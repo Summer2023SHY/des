@@ -1,10 +1,12 @@
 from typing import NotRequired, TypedDict
 
+
 class StateDict(TypedDict):
     all: list[str]
     initial: list[str]
     marked: list[list[str]]
     bad: list[str]
+
 
 class EventDict(TypedDict):
     all: list[str]
@@ -12,15 +14,18 @@ class EventDict(TypedDict):
     controllable: list[list[str]]
     observable: list[list[str]]
 
+
 class TransitionDict(TypedDict):
     all: dict[str, list[str]]
     bad: dict[str, list[str]]
+
 
 class Automaton(TypedDict):
     name: NotRequired[str]
     states: StateDict
     events: EventDict
     transitions: TransitionDict
+
 
 def validate(automaton: Automaton) -> bool:
     """Validates if an automaton is correctly formatted. This includes:
@@ -69,7 +74,11 @@ def validate(automaton: Automaton) -> bool:
             raise KeyError("The states subtree must have a key for " + x)
         for state in states[x]:
             if not isinstance(state, str):
-                raise TypeError("The only permitted type inside the states subtree " + x + " is a string")
+                raise TypeError(
+                    "The only permitted type inside the states subtree "
+                    + x
+                    + " is a string"
+                )
 
     # marked is separate, because it's a list of lists
     marked = states["marked"]
@@ -81,7 +90,9 @@ def validate(automaton: Automaton) -> bool:
             raise TypeError("The marked states should be a list of lists")
         for state in x:
             if not isinstance(state, str):
-                raise TypeError("The only permitted type inside the marked states list is a string")
+                raise TypeError(
+                    "The only permitted type inside the marked states list is a string"
+                )
 
     # 2: EVENTS
     events = automaton["events"]
@@ -95,22 +106,35 @@ def validate(automaton: Automaton) -> bool:
     for x in ["all"]:
         for event in events[x]:
             if not isinstance(event, str):
-                raise TypeError("The only permitted type inside the events subtree " + x + " is a string")
+                raise TypeError(
+                    "The only permitted type inside the events subtree "
+                    + x
+                    + " is a string"
+                )
 
     for x in ["observable", "controllable"]:
         if not isinstance(events[x], list):
-            raise TypeError("The " + x + " area must be a list-of-lists-of-strings structure")
+            raise TypeError(
+                "The " + x + " area must be a list-of-lists-of-strings structure"
+            )
 
         for lst in events[x]:
             if not isinstance(lst, list):
-                raise TypeError("The " + x + " area must be a list-of-lists-of-strings structure")
+                raise TypeError(
+                    "The " + x + " area must be a list-of-lists-of-strings structure"
+                )
             for event in lst:
                 if not isinstance(event, str):
-                    raise TypeError("The only permitted type inside the " + x + " list-of-lists is a string")
+                    raise TypeError(
+                        "The only permitted type inside the "
+                        + x
+                        + " list-of-lists is a string"
+                    )
 
     if len(events["observable"]) != len(events["controllable"]):
         raise ValueError(
-            "There must be the same number of lists within both observable and controllable (one for each player in the system)")
+            "There must be the same number of lists within both observable and controllable (one for each player in the system)"
+        )
 
     # 3: Transitions
     trans = automaton["transitions"]
@@ -122,12 +146,16 @@ def validate(automaton: Automaton) -> bool:
             raise KeyError("The transitions subtree must have a key for " + x)
         # Make sure it's a dict
         if not isinstance(trans[x], dict):
-            raise TypeError("The transitions subtree " + x + " must be a dictionary structure")
+            raise TypeError(
+                "The transitions subtree " + x + " must be a dictionary structure"
+            )
         # Make sure all entries are lists
         for key, value in trans[x].items():
             if not isinstance(value, list):
                 raise TypeError("The values for transitions must be lists of strings")
             for state in value:
                 if not isinstance(state, str):
-                    raise TypeError("The values for transitions must be lists of strings")
+                    raise TypeError(
+                        "The values for transitions must be lists of strings"
+                    )
     return True

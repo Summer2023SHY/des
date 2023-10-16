@@ -3,7 +3,7 @@ from cli.display.display_menu import display_menu
 from structure_validation.automaton_validator import Automaton
 
 
-def print_selected(automata: list[Automaton], selected: list[bool] | None=None):
+def print_selected(automata: list[Automaton], selected: list[bool] | None = None):
     """Helper method that prints all of the automata's names and indicates if
     they have been selected, based on the booleans given.
 
@@ -37,16 +37,18 @@ def print_selected(automata: list[Automaton], selected: list[bool] | None=None):
 
 
 # The message describing what the menu is for
-multiple_menu_msg = '''
+multiple_menu_msg = """
 -------------------------------------------------------------------
 Type the index of your desired automaton to add/remove it
 #: select the index
 s: exits and selects automata
 e: exit and cancels selection
-'''
+"""
 
 
-def select_automata_menu(automata: list[Automaton], min_selection: int=1, menu_name: str=None) -> list[Automaton] | None:
+def select_automata_menu(
+    automata: list[Automaton], min_selection: int = 1, menu_name: str = None
+) -> list[Automaton] | None:
     """Menu for selecting multiple automata.
 
     Parameters
@@ -95,22 +97,25 @@ def select_automata_menu(automata: list[Automaton], min_selection: int=1, menu_n
                     return result
                 else:
                     # Prevent exit because selection was inadequate
-                    show_error("At least " + str(min_selection)
-                               + " automata must be selected")
+                    show_error(
+                        "At least " + str(min_selection) + " automata must be selected"
+                    )
             else:
                 show_error("Command not recognized")
 
 
 # The message describing what the menu is for
-single_menu_msg = '''
+single_menu_msg = """
 -------------------------------------------------------------------
 Type the index of your desired automaton to add/remove it
 #: select the index
 e: exit without saving
-'''
+"""
 
 
-def select_automaton_menu(automata: list[Automaton], menu_name: str=None) -> Automaton | None:
+def select_automaton_menu(
+    automata: list[Automaton], menu_name: str = None
+) -> Automaton | None:
     """Menu for selecting a single automaton.
 
     Parameters
@@ -142,12 +147,10 @@ def select_automaton_menu(automata: list[Automaton], menu_name: str=None) -> Aut
         try:
             # If successfully selected, return the selection
             if int(inpt) in range(num_options):
-                show_notification("Selected:\n" +
-                                  str(automata[int(inpt)]["name"]))
+                show_notification("Selected:\n" + str(automata[int(inpt)]["name"]))
                 return automata[int(inpt)]
             else:
-                show_error("Index not valid, max index is "
-                           + str(num_options - 1))
+                show_error("Index not valid, max index is " + str(num_options - 1))
         except ValueError:
             # See if the user wanted to exit
             inpt = inpt.lower()

@@ -10,12 +10,12 @@ from cli.save_and_visualize import save_temp
 
 
 # The message describing what the menu is for
-menu_msg = '''
+menu_msg = """
 Open File Menu
 -------------------------------------------------------------------
 In the popup window, find the JSON file representing your automaton
 and select open to import it into the application
-'''
+"""
 
 
 def open_file_menu(automata: list[Automaton], temp_dir: str) -> None:
