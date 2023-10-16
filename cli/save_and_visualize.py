@@ -5,9 +5,10 @@ from graph_viz.visualize import visualize
 from cli.selection.select_automata_menu import select_automata_menu
 from cli.display.message import show_error, show_notification
 import global_settings
+from structure_validation.automaton_validator import Automaton
 
 
-def save_temp(automaton, temp_dir, must_show=False):
+def save_temp(automaton: Automaton, temp_dir: str, must_show: bool=False) -> None:
     """Saves an automaton to the temporary directory provided and opens it in a
     PDF viewer.
     If the user has turned off auto-vis, then nothing happens here.
@@ -35,7 +36,7 @@ def save_temp(automaton, temp_dir, must_show=False):
         visualize(automaton, path)
 
 
-def select_and_save_temp(automata, temp_dir):
+def select_and_save_temp(automata: list[Automaton], temp_dir: str) -> None:
     """Allows a user to select an automaton to save/visualize. After selection,
     if the selection was valid, it saves and visualizes the automaton.
 
@@ -57,7 +58,7 @@ def select_and_save_temp(automata, temp_dir):
             save_temp(a, temp_dir, must_show=True)
 
 
-def save(automaton):
+def save(automaton: Automaton) -> None:
     """Saves an automaton to a user-defined location in JSON form, dot form, and
     the GraphViz PDF form.
 
@@ -90,7 +91,7 @@ def save(automaton):
         return True
 
 
-def select_and_save(automata):
+def select_and_save(automata: list[Automaton]) -> None:
     """Allows the user to select an automaton and then subsequently choose where
     to save it.
 

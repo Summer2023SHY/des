@@ -1,4 +1,8 @@
-def intersect_events(automaton, alphabet):
+from typing import Any
+
+from structure_validation.automaton_validator import Automaton
+
+def intersect_events(automaton: Automaton, alphabet: list[str]) -> dict[str, list[Any]]:
     """Ensures that the automaton only has events in the provided alphabet.
 
     Parameters

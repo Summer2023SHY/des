@@ -1,4 +1,6 @@
-def no_heuristic(automaton, unverified, verified):
+from structure_validation.automaton_validator import Automaton
+
+def no_heuristic(automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]) -> list[Automaton]:
     """Orders the automata to compose with the automaton with no heuristic (aside
     from prioritizing automata that have not been verified).
 
@@ -18,7 +20,7 @@ def no_heuristic(automaton, unverified, verified):
     """
     return [*unverified, *verified]
 
-def most_shared_heuristic(automaton, unverified, verified):
+def most_shared_heuristic(automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]) -> list[Automaton]:
     """Orders the automata to compose with the automaton by those that share the
     most events with the automaton.
 
@@ -47,7 +49,7 @@ def most_shared_heuristic(automaton, unverified, verified):
 
     return [*unverified, *verified]
 
-def least_new_heuristic(automaton, unverified, verified):
+def least_new_heuristic(automaton: Automaton, unverified: list[Automaton], verified: list[Automaton]) -> list[Automaton]:
     """Orders the automata to compose with the automaton by those that introduce
     the fewest events to the automaton.
 

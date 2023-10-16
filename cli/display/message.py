@@ -5,7 +5,7 @@ from time import sleep
 sleep_time = 0.05
 
 
-def show_error(message):
+def show_error(message: str):
     """Displays an error message with standard formatting.
 
     Parameters
@@ -26,7 +26,7 @@ def show_error(message):
     sleep(sleep_time * 2)
 
 
-def show_notification(message):
+def show_notification(message: str):
     """Displays a notification in the CLI to indicate some progress or event
     that has occurred. These should not include errors.
 

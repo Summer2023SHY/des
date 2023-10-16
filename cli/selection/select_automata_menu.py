@@ -1,8 +1,9 @@
 from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
+from structure_validation.automaton_validator import Automaton
 
 
-def print_selected(automata, selected=None):
+def print_selected(automata: list[Automaton], selected: list[bool] | None=None):
     """Helper method that prints all of the automata's names and indicates if
     they have been selected, based on the booleans given.
 
@@ -45,7 +46,7 @@ e: exit and cancels selection
 '''
 
 
-def select_automata_menu(automata, min_selection=1, menu_name=None):
+def select_automata_menu(automata: list[Automaton], min_selection: int=1, menu_name: str=None) -> list[Automaton] | None:
     """Menu for selecting multiple automata.
 
     Parameters
@@ -109,7 +110,7 @@ e: exit without saving
 '''
 
 
-def select_automaton_menu(automata, menu_name=None):
+def select_automaton_menu(automata: list[Automaton], menu_name: str=None) -> Automaton | None:
     """Menu for selecting a single automaton.
 
     Parameters

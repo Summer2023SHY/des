@@ -1,9 +1,10 @@
 from copy import deepcopy
 from basic_ops.helpers.string_helpers import extract_event, extract_state
 from basic_ops.accessible import get_accessible
+from structure_validation.automaton_validator import Automaton
 
 
-def get_controllable(automaton):
+def get_controllable(automaton: Automaton) -> Automaton:
     """Gets the supremal controllable version of the automaton that avoids all
     bad states by removing only controllable transitions. It does not guarantee
     that the language is observable (that is, has the same control actions

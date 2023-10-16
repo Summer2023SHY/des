@@ -6,6 +6,7 @@ from cli.menus.close_automata_menu import close_automata_menu
 from cli.save_and_visualize import select_and_save_temp, select_and_save
 from cli.display.display_menu import display_menu
 from cli.settings.settings_menu import settings_menu
+from structure_validation.automaton_validator import Automaton
 from time import sleep
 
 
@@ -26,7 +27,7 @@ e: exit
 '''
 
 
-def main_menu(next_screens, automata, temp_dir):
+def main_menu(next_screens: list, automata: list[Automaton], temp_dir: str) -> None:
     """Main menu for the application with all of the actions that are possible
     in the application at a high level.
 

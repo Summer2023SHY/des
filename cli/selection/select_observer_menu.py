@@ -1,5 +1,6 @@
 from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
+from structure_validation.automaton_validator import Automaton
 
 
 # Part 1 of the message describing what the menu is for
@@ -20,7 +21,7 @@ e: exit without saving
 '''
 
 
-def select_observer_menu(automaton):
+def select_observer_menu(automaton: Automaton) -> int:
     """Allows the user to select which observer to use for an operation (each
     observer has an observable alphabet, a controllable alphabet, and a set of
     secret states).

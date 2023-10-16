@@ -19,7 +19,7 @@ e: exit
 menu_option = "graphviz_auto_vis"
 
 
-def choose_auto_vis():
+def choose_auto_vis() -> bool:
     """Presents a menu for the user to select if they wish to automatically
     visualize their automata upon import/creation.
 

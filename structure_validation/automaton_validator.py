@@ -1,4 +1,28 @@
-def validate(automaton):
+from typing import NotRequired, TypedDict
+
+class __StateDict(TypedDict):
+    all: list[str]
+    initial: list[str]
+    marked: list[list[str]]
+    bad: list[str]
+
+class __EventDict(TypedDict):
+    all: list[str]
+    attacker: list[str]
+    controllable: list[list[str]]
+    observable: list[list[str]]
+
+class __TransitionDict(TypedDict):
+    all: dict[str, list[str]]
+    bad: dict[str, list[str]]
+
+class Automaton(TypedDict):
+    name: NotRequired[str]
+    states: __StateDict
+    events: __EventDict
+    transitions: __TransitionDict
+
+def validate(automaton: Automaton) -> bool:
     """Validates if an automaton is correctly formatted. This includes:
 
     1. Has a states area with "all", "initial", "marked", and "bad"

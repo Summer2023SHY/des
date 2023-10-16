@@ -1,5 +1,6 @@
 from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
+from structure_validation.automaton_validator import Automaton
 
 
 # Part 1 of the message describing what the menu is for
@@ -21,7 +22,7 @@ e: exit without saving
 '''
 
 
-def select_secret_menu(automaton):
+def select_secret_menu(automaton: Automaton) -> int:
     """Allows the user to select which secret to use for an operation.
 
     Parameters

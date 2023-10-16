@@ -1,8 +1,11 @@
+from typing import Any
+
 import basic_ops.helpers.string_helpers as helper
 import basic_ops.helpers.state_helpers as state_helper
+from structure_validation.automaton_validator import Automaton
 
 
-def union_events(automata):
+def union_events(automata: list[Automaton]) -> dict[str, list[str]]:
     """Unions all of the events of multiple automata
 
     Parameters
@@ -59,7 +62,7 @@ def union_events(automata):
     }
 
 
-def union_transitions(automata, all_events):
+def union_transitions(automata: list[Automaton], all_events: list[str]) -> dict[str, Any]:
     """Unions the transitions of multiple automata. That is, a transition is
     defined from a state if and only if all automata that have such an event
     defined have a transition defined. This also applies when only one

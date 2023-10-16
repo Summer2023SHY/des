@@ -1,8 +1,9 @@
 from copy import deepcopy
 from basic_ops.helpers.string_helpers import format_transition
+from structure_validation.automaton_validator import Automaton
 
 
-def get_accessible(automaton):
+def get_accessible(automaton: Automaton) -> Automaton:
     """Copies the automaton and prunes off any transitions/states which are not
     accessible from the initial state.
 

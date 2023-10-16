@@ -1,4 +1,4 @@
-def __make_event_list(events):
+def __make_event_list(events: list[str]):
     """Makes a list of events separated by commas (string form)
 
     Parameters
@@ -18,7 +18,7 @@ def __make_event_list(events):
     return string[:-2]
 
 
-def generate_event_legend(events):
+def generate_event_legend(events: list[str]) -> str:
     """Generates a legend for events and returns a string in dot language.
     For more information, visit https://graphviz.readthedocs.io.
 
@@ -29,7 +29,6 @@ def generate_event_legend(events):
 
     Returns
     -------
-    str
         The dot code for the events legend in the graph, which should be
         appended to the body of the graphviz document
     """

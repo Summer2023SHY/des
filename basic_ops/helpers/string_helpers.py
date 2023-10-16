@@ -1,7 +1,8 @@
 from json import dumps
 
+from structure_validation.automaton_validator import Automaton
 
-def get_states(states, chosen_so_far=[]):
+def get_states(states: list[str], chosen_so_far: list=[]) -> list[str]:
     """A list of current states for multiple automata in a composed system (i.e.,
     a "macro-state") has some states which are non-deterministic: that is, the
     state might be ["q1", ["q2", "q3"]]. We want to find all distinct states,
@@ -38,7 +39,7 @@ def get_states(states, chosen_so_far=[]):
     return macro_states
 
 
-def format_state(states):
+def format_state(states: list[str]) -> str:
     """Creates a macro-state string containing all of the states passed in.
 
     Parameters
@@ -66,7 +67,7 @@ def format_state(states):
     return str
 
 
-def format_state_set(states):
+def format_state_set(states: list[str]) -> str:
     """Creates a macro-state string containing all of the states passed in as a
     set.
 
@@ -96,7 +97,7 @@ def format_state_set(states):
     return str
 
 
-def format_event_vector(events):
+def format_event_vector(events: list[str]) -> str:
 	"""Formats an event vector into a format with angle brackets.
 
 	Parameters
@@ -116,7 +117,7 @@ def format_event_vector(events):
 	s += "]"
 	return s
 
-def format_transition(state, event):
+def format_transition(state: str, event: str) -> str:
     """Formats a state and event into the proper format for a transition,
     which is used as a key in the transition dictionary.
 
@@ -142,7 +143,7 @@ def format_transition(state, event):
     return state + "->" + event
 
 
-def format_observed_secrets(observer, observed_secrets):
+def format_observed_secrets(observer: str, observed_secrets: list) -> str:
     """Formats an observer's observation of other agents' secrets
 
     Parameters
@@ -165,7 +166,7 @@ def format_observed_secrets(observer, observed_secrets):
     return str(observer) + "->" + "{" + lst + "}"
 
 
-def format_all_observed_secrets(lst):
+def format_all_observed_secrets(lst: list) -> str:
     """Formats all observers' observations of other agents' secrets
 
     Parameters
@@ -188,7 +189,7 @@ def format_all_observed_secrets(lst):
     return result
 
 
-def extract_state(transition):
+def extract_state(transition: str) -> str:
     """Extracts the name of the origin state given a string representing a
     transition.
 
@@ -205,7 +206,7 @@ def extract_state(transition):
     return transition.split("->", 1)[0]
 
 
-def extract_event(transition):
+def extract_event(transition: str) -> str:
     """Extracts the name of the event given a string representing a
     transition.
 
@@ -222,7 +223,7 @@ def extract_event(transition):
     return transition.split("->", 1)[1]
 
 
-def pretty_print(automaton):
+def pretty_print(automaton: Automaton) -> None:
     """
     Formats an automaton in an attractive way and prints as text.
 

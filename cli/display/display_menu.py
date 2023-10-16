@@ -5,7 +5,7 @@ from time import sleep
 sleep_time = 0.025
 
 
-def display_menu(message):
+def display_menu(message: str):
     """Displays a menu with a given message. Each menu has a standard speed at
     which it appears and a standard formatting, hence this helper method.
 

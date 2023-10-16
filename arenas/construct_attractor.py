@@ -2,7 +2,7 @@ from arenas.helpers.construct_attractor_helpers import *
 from copy import deepcopy
 
 
-def construct_attractor(arena):
+def construct_attractor(arena: dict):
     """Constructs an attractor, as defined in Appendix 6.1 of "Opacity with
     powerful attackers" (Hélouët, Marchand, & Ricker, 2018). That is, it
     copies the input arena and creates three sets: "bad", "bad-v1", and "bad-v2"

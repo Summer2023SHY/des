@@ -2,7 +2,7 @@ from tkinter import filedialog
 import tkinter as tk
 from json import load, JSONDecodeError
 
-from structure_validation.automaton_validator import validate
+from structure_validation.automaton_validator import Automaton, validate
 from cli.menus.name_automaton_menu import name_automaton_menu
 from cli.display.message import show_error, show_notification
 from cli.display.display_menu import display_menu
@@ -18,7 +18,7 @@ and select open to import it into the application
 '''
 
 
-def open_file_menu(automata, temp_dir):
+def open_file_menu(automata: list[Automaton], temp_dir: str) -> None:
     """Opens a file using a file dialog box and immediately visualizes it if it
     is a valid automaton.
 

@@ -1,9 +1,10 @@
 from basic_ops.determinize import determinize
 from basic_ops.coaccessible import get_coaccessible
 from basic_ops.union import union
+from structure_validation.automaton_validator import Automaton
 
 
-def create_leakage_automaton(automaton, observer=0, secret=0):
+def create_leakage_automaton(automaton: Automaton, observer: int=0, secret: int=0) -> Automaton:
     """Gets the leakage automaton with respect to a certain observer and secret.
 
     Parameters

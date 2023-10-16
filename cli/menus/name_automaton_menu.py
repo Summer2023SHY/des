@@ -1,5 +1,6 @@
 from cli.display.display_menu import display_menu
 from cli.display.message import show_error, show_notification
+from structure_validation.automaton_validator import Automaton
 
 
 # The message describing what the menu is for
@@ -10,7 +11,7 @@ Give your automaton a name and press enter
 '''
 
 
-def name_automaton_menu(automata, automaton):
+def name_automaton_menu(automata: list[Automaton], automaton: Automaton):
     """Gives the user the opportunity to name an automaton, if the automaton
     is currently unnamed (or has a name that conflicts with another automaton
     already loaded).

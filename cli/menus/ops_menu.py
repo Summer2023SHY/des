@@ -10,6 +10,7 @@ from arenas.construct_arena import construct_arena
 from arenas.construct_attractor import construct_attractor
 from modular_opacity.modular_opacity_verification import check_modular_opacity
 from communication.construct_communication_arena import construct_communication_arena
+from structure_validation.automaton_validator import Automaton
 
 from cli.selection.select_automata_menu import select_automata_menu, select_automaton_menu
 from cli.selection.select_observer_menu import select_observer_menu
@@ -55,7 +56,7 @@ bca: build communication arena from (Ricker, 2013)
 '''
 
 
-def __save(automata, automaton, temp_dir):
+def __save(automata: list[Automaton], automaton: Automaton, temp_dir: str):
     """Helper method that saves an automaton into the automata list by naming
     it and appending it to the list. It also visualizes the automaton in the
     temp folder.
@@ -78,7 +79,7 @@ def __save(automata, automaton, temp_dir):
     save_temp(automaton, temp_dir)
 
 
-def ops_menu(automata, temp_dir):
+def ops_menu(automata: list[Automaton], temp_dir: str):
     """Opens a menu with options for different operations that can be performed.
 
     Parameters

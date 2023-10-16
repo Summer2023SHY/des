@@ -2,9 +2,10 @@ from copy import deepcopy
 from itertools import chain
 from basic_ops.helpers.string_helpers import extract_state
 from basic_ops.accessible import get_accessible
+from structure_validation.automaton_validator import Automaton
 
 
-def get_coaccessible(automaton):
+def get_coaccessible(automaton: Automaton) -> Automaton:
     """Copies all states and transitions from the automaton that lead to a
     marked state (for any agent).
 

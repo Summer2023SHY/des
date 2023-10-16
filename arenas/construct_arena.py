@@ -3,9 +3,10 @@ from arenas.helpers.control_actions import get_valid_control_actions
 from arenas.helpers.state_helpers import check_marked_agents
 from arenas.helpers.construct_arena_helpers import add_v2_transitions
 from basic_ops.helpers.string_helpers import *
+from structure_validation.automaton_validator import Automaton
 
 
-def construct_arena(automaton):
+def construct_arena(automaton: Automaton):
     """Constructs an arena from an automaton, as specified in (Ricker, Marchand,
     & Keroglou, 2019). The arena has the same form as a regular automaton,
     except with a few extra features. The "states" section has two extra lists:

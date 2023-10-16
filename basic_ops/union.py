@@ -1,7 +1,8 @@
 import basic_ops.helpers.union_helpers as helper
+from structure_validation.automaton_validator import Automaton
 
 
-def union(automata):
+def union(automata: list[Automaton]) -> Automaton:
     """Composes two or more finite state automata.
 
     Specifically, the union operation synchronizes all of the automata on their

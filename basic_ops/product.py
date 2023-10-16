@@ -1,7 +1,8 @@
 from basic_ops.helpers.product_helpers import product_transitions, product_events
+from structure_validation.automaton_validator import Automaton
 
 
-def product(automata):
+def product(automata: list[Automaton]) -> Automaton:
     """Composes two or more finite state automata.
 
     Specifically, the product operation synchronizes all of the automata on their

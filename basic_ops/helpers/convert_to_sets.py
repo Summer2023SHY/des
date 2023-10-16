@@ -1,4 +1,4 @@
-def convert_to_sets(structure):
+def convert_to_sets(structure: list | dict) -> set | dict:
     """Converts all lists to sets in a complex data structure (recursively).
     This is useful when lists are really supposed to be unordered, but JSON
     prevents their use.

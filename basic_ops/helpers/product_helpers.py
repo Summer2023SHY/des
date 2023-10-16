@@ -1,8 +1,12 @@
+from typing import Any
+
 import basic_ops.helpers.string_helpers as helper
 import basic_ops.helpers.state_helpers as state_helper
 
+from structure_validation.automaton_validator import Automaton
 
-def product_events(automata):
+
+def product_events(automata: list[Automaton]) -> dict[str, list[str]]:
     """Intersects all of the events of multiple automata
 
     Parameters
@@ -61,7 +65,7 @@ def product_events(automata):
     }
 
 
-def product_transitions(automata, all_events):
+def product_transitions(automata: list[Automaton], all_events: list[str]) -> dict[str, dict[str, Any]]:
     """Performs product on the transitions of multiple automata. That is, a
     transition is defined from a state if and only if all automata have
     the event defined (no private events).

@@ -15,7 +15,7 @@ file_types = ["pdf", "svg", "jpeg", "png"]
 menu_option = "graphviz_file_type"
 
 
-def get_file_type_options():
+def get_file_type_options() -> str:
     """Turns all file type options into a string for displaying to the user.
 
     Returns
@@ -33,7 +33,7 @@ def get_file_type_options():
     return msg
 
 
-def choose_gv_file_type():
+def choose_gv_file_type() -> int | None:
     """Presents a menu for the user to select their desired graphviz file output
     type (pdf, png, jpeg...)
 

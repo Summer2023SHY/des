@@ -17,7 +17,7 @@ a: enable/disable auto-visualization of automata on import and
 '''
 
 
-def settings_menu():
+def settings_menu() -> None:
     """Opens a menu with options for different settings which can be edited. It
     changes the default for all future sessions as well.
 

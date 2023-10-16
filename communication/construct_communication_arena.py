@@ -1,6 +1,7 @@
 from basic_ops.helpers.string_helpers import *
+from structure_validation.automaton_validator import Automaton
 
-def construct_communication_arena(automaton):
+def construct_communication_arena(automaton: Automaton) -> dict:
 	"""Constructs an arena from an automaton, as specified in a tutorial in
 	(Ricker, 2013). The arena has only one type of state and one type of
 	transitions. Each state is a tuple: the actual state of the system, the

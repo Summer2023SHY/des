@@ -1,8 +1,10 @@
+
 from basic_ops.helpers.string_helpers import format_transition, format_state_set
 from basic_ops.helpers.state_helpers import check_marked_inverse
+from structure_validation.automaton_validator import Automaton
 
 
-def get_unobservable_reach(automaton, states, alphabet):
+def get_unobservable_reach(automaton: Automaton, states: list[str], alphabet: list[str]) -> list[str]:
     """Gets all states that are accessible from some macro-state using
     unobservable events (i.e., events that are not part of the input alphabet).
 
@@ -48,7 +50,7 @@ def get_unobservable_reach(automaton, states, alphabet):
     return list(accessible)
 
 
-def determinize_transitions(automaton, alphabet):
+def determinize_transitions(automaton: Automaton, alphabet: list[str]) -> dict[str, dict[str, any]]:
     """Creates the transition function and state space for the determinized
     version (Det(A)) of the input automaton (A). That is, the initial
     macro-state of Det(A) is defined as the set containing the initial state of

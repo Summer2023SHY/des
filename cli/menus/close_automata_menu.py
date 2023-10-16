@@ -2,6 +2,7 @@ from cli.selection.select_automata_menu import print_selected
 from cli.display.message import show_error, show_notification
 from cli.save_and_visualize import save
 from cli.display.display_menu import display_menu
+from structure_validation.automaton_validator import Automaton
 
 
 # The message describing what the menu is for
@@ -18,7 +19,7 @@ s: save the selected automata and close them
 '''
 
 
-def close_automata_menu(automata):
+def close_automata_menu(automata: list[Automaton]) -> None:
     """Menu for closing automaton. It has three major tasks: 1) selecting the
     automata, then 2) closing without saving or 3) closing with saving.
     When an automaton has been "closed", it is no longer in the automata list.
