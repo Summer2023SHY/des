@@ -1,21 +1,27 @@
 {
-	"states": {
-		"all": ["q1"],
-		"initial": ["q1"],
-		"marked": [[]],
-		"bad": []
-	},
-	"events": {
-		"all": [],
-		"controllable": [
-			[]
-		],
-		"observable": [
-			[]
-		]
-	},
-	"transitions": {
-		"all": {},
-		"bad": {}
-	}
+    "states": {
+        "all": [
+            "q1"
+        ],
+        "initial": [
+            "q1"
+        ],
+        "marked": [
+            []
+        ],
+        "bad": []
+    },
+    "events": {
+        "all": [],
+        "controllable": [
+            []
+        ],
+        "observable": [
+            []
+        ]
+    },
+    "transitions": {
+        "all": {},
+        "bad": {}
+    }
 }
