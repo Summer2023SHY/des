@@ -24,14 +24,14 @@ Follow the on-screen instructions to interact with the command-line interface. N
 
 ### Input Specification
 
-Input for the program must be specified correctly in a text file, which is then passed into the program. For information on how to create the text file, see https://github.com/gzinck/des/wiki/Input-Specification
+Input for the program must be specified correctly in a text file, which is then passed into the program. For information on how to create the text file, see [input specification](../../wiki/Input-Specification).
 
 ## Current Features
 
 - Composing two automata with union and product operations
 - Determinizing an automaton
 - Verifying the JSON for an automaton to ensure it is a valid automaton, based on
-the specification [here](https://github.com/gzinck/des/wiki/Input-Specification).
+the specification [here](../../wiki/Input-Specification).
 - Creation of an arena, as per *Leaking Secrets* (Ricker, Marchand, \&
 Keroglou, 2019).
 - An interface to allow the user to work with the software.
