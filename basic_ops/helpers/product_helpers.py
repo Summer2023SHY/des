@@ -36,7 +36,7 @@ def product_events(automata: list[Automaton]) -> dict[str, list[str]]:
     }
     """
     if len(automata) < 2:
-        raise Exception("Product requires at least two automata in a list as input.")
+        raise ValueError("Product requires at least two automata in a list as input.")
 
     # The number of players with different alphabets for observing/controlling
     num_players = len(automata[0]["events"]["controllable"])
