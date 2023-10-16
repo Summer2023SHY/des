@@ -75,11 +75,11 @@ def validate(automaton):
 
     for x in ["observable", "controllable"]:
         if not isinstance(events[x], list):
-            raise Exception("The " + observable + " area must be a list-of-lists-of-strings structure")
+            raise Exception("The " + x + " area must be a list-of-lists-of-strings structure")
 
         for lst in events[x]:
             if not isinstance(lst, list):
-                raise Exception("The " + observable + " area must be a list-of-lists-of-strings structure")
+                raise Exception("The " + x + " area must be a list-of-lists-of-strings structure")
             for event in lst:
                 if not isinstance(event, str):
                     raise Exception("The only permitted type inside the " + x + " list-of-lists is a string")
