@@ -1,9 +1,16 @@
 from arenas.helpers.state_helpers import find_next_state
 from basic_ops.helpers.string_helpers import *
+from structure_validation.automaton_validator import Automaton
 
 
 def add_v2_transitions(
-    automata, state, enabled_events, v2_trans, v2_visited, v1_visited, v1_queue
+    automata: list[Automaton],
+    state: list[str],
+    enabled_events: set[str],
+    v2_trans: dict,
+    v2_visited: set,
+    v1_visited,
+    v1_queue,
 ):
     """Adds transitions leaving a given v2 state to v1 and v2 states. If it
     leads to another v2 state, then it adds that v2 state and continues adding

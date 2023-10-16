@@ -1,7 +1,10 @@
 import basic_ops.helpers.string_helpers as str_helper
+from structure_validation.automaton_validator import Automaton
 
 
-def find_next_state(automata, state, event):
+def find_next_state(
+    automata: list[Automaton], state: list[str], event: str
+) -> list[str]:
     """Gets the next state for the system composed of all automata in the
     parameter from the current state, given an event. It assumes that if
     the event is not defined in one of the automata, then that automaton
@@ -42,7 +45,7 @@ def find_next_state(automata, state, event):
     return next_state
 
 
-def check_marked_agents(automata, states):
+def check_marked_agents(automata: list[Automaton], states: list[str]) -> list[tuple]:
     """Assuming each automaton represents one agent's view of the system, this
     returns a list of agents for which its current state is a marked state
     from another agent's perspective

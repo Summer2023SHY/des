@@ -2,9 +2,12 @@ from itertools import chain, combinations
 
 import basic_ops.helpers.string_helpers as str_helper
 from basic_ops.helpers.determinization_helpers import get_unobservable_reach
+from structure_validation.automaton_validator import Automaton
 
 
-def get_valid_control_actions(automaton, state, observable_events):
+def get_valid_control_actions(
+    automaton: Automaton, state: str, observable_events: list[str]
+) -> list[list[str]]:
     """This gets all possible valid control actions for an automaton at a given
     state. That is, it finds all possible actions for the automaton from the
     unobservable reach of the current state and returns its power set as a list

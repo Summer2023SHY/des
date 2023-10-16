@@ -1,4 +1,4 @@
-def mark_bad_v2s(attractor):
+def mark_bad_v2s(attractor: dict) -> bool:
     """Adds bad-v2 states to the attractor—that is, v2 states which lead to
     bad-v1 states.
 
@@ -39,7 +39,7 @@ def mark_bad_v2s(attractor):
     return bad_added
 
 
-def mark_bad_v1s(attractor):
+def mark_bad_v1s(attractor: dict) -> bool:
     """Adds bad-v1 states to the attractor—that is, v1 states for which all
     control decisions lead to bad-v2 states.
 
