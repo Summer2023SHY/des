@@ -1,26 +1,26 @@
 from typing import NotRequired, TypedDict
 
-class __StateDict(TypedDict):
+class StateDict(TypedDict):
     all: list[str]
     initial: list[str]
     marked: list[list[str]]
     bad: list[str]
 
-class __EventDict(TypedDict):
+class EventDict(TypedDict):
     all: list[str]
     attacker: list[str]
     controllable: list[list[str]]
     observable: list[list[str]]
 
-class __TransitionDict(TypedDict):
+class TransitionDict(TypedDict):
     all: dict[str, list[str]]
     bad: dict[str, list[str]]
 
 class Automaton(TypedDict):
     name: NotRequired[str]
-    states: __StateDict
-    events: __EventDict
-    transitions: __TransitionDict
+    states: StateDict
+    events: EventDict
+    transitions: TransitionDict
 
 def validate(automaton: Automaton) -> bool:
     """Validates if an automaton is correctly formatted. This includes:
