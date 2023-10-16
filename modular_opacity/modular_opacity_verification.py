@@ -1,3 +1,5 @@
+from typing import Callable
+
 from structure_validation.automaton_validator import Automaton
 from basic_ops.opacity import check_opacity_already_determinized
 from basic_ops.union import union
@@ -9,7 +11,12 @@ from modular_opacity.heuristics import (
 )
 
 
-def check_modular_opacity(automata: list[Automaton], heuristic=no_heuristic):
+def check_modular_opacity(
+    automata: list[Automaton],
+    heuristic: Callable[
+        [Automaton, list[Automaton], list[Automaton]], list[Automaton]
+    ] = no_heuristic,
+):
     """Verifies current state opacity for the modular system composed of the
     input automata. Assumes that the shared alphabet of the automata is a
     subset of the attacker's alphabet, and the attacker's alphabet is defined
