@@ -1,6 +1,6 @@
 import tkinter as tk
+import tkinter.filedialog as filedialog
 from json import JSONDecodeError, load
-from tkinter import filedialog
 
 from cli.display.display_menu import display_menu
 from cli.display.message import show_error, show_notification

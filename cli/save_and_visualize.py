@@ -1,6 +1,6 @@
 import os
+import tkinter.filedialog as filedialog
 from json import dump
-from tkinter import filedialog
 
 import global_settings
 from cli.display.message import show_error, show_notification
