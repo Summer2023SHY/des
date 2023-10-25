@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from time import sleep
 
 from cli.display.display_menu import display_menu
@@ -27,7 +28,9 @@ e: exit
 """
 
 
-def main_menu(next_screens: list, automata: list[Automaton], temp_dir: str) -> None:
+def main_menu(
+    next_screens: list[Callable[..., None]], automata: list[Automaton], temp_dir: str
+) -> None:
     """Main menu for the application with all of the actions that are possible
     in the application at a high level.
 

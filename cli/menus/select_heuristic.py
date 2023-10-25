@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 from cli.display.display_menu import display_menu
 from cli.display.message import show_error, show_notification
 from modular_opacity.heuristics import (
@@ -5,6 +7,7 @@ from modular_opacity.heuristics import (
     most_shared_heuristic,
     no_heuristic,
 )
+from structure_validation.automaton_validator import Automaton
 
 menu_msg = """
 Select Heuristic Menu
@@ -19,7 +22,9 @@ heuristics may be faster.
 """
 
 
-def select_heuristic():
+def select_heuristic() -> (
+    Callable[[Automaton, list[Automaton], list[Automaton]], list[Automaton]]
+):
     """Opens a menu to select a heuristic for composing systems in a modular
     architecture to speed up operations.
 

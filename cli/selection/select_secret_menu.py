@@ -21,7 +21,7 @@ e: exit without saving
 """
 
 
-def select_secret_menu(automaton: Automaton) -> int:
+def select_secret_menu(automaton: Automaton) -> int | None:
     """Allows the user to select which secret to use for an operation.
 
     Parameters

@@ -1,4 +1,5 @@
 import json
+from typing import Any, Final
 
 from cli.display.message import show_error
 
@@ -6,11 +7,14 @@ from cli.display.message import show_error
 settings_file = "settings.ini"
 
 # The default settings
-defaults = {"graphviz_file_type": "pdf", "graphviz_auto_vis": True}
+defaults: Final[dict[str, Any]] = {
+    "graphviz_file_type": "pdf",
+    "graphviz_auto_vis": True,
+}
 settings = None
 
 
-def initialize():
+def initialize() -> None:
     """Initializes the program's settings
 
     Returns
@@ -40,7 +44,7 @@ def initialize():
             settings[k] = v
 
 
-def update(setting, value):
+def update(setting: str, value: Any) -> None:
     """Updates the setting with a new value
 
     Parameters

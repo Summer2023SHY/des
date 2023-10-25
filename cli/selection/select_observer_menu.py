@@ -20,7 +20,7 @@ e: exit without saving
 """
 
 
-def select_observer_menu(automaton: Automaton) -> int:
+def select_observer_menu(automaton: Automaton) -> int | None:
     """Allows the user to select which observer to use for an operation (each
     observer has an observable alphabet, a controllable alphabet, and a set of
     secret states).
