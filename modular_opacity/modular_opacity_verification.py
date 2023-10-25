@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 from basic_ops.determinize import determinize
 from basic_ops.opacity import check_opacity_already_determinized
