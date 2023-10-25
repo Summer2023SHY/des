@@ -1,58 +1,40 @@
 import json
-import unittest
+
+import pytest
 
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
 from basic_ops.union import union
 
 
-class TestUnion(unittest.TestCase):
-    def setUp(self):
-        filenames1 = [
-            "tests/union/union_test_cases/union_test_1a_in.json",
-            "tests/union/union_test_cases/union_test_2a_in.json",
-        ]
-        filenames2 = [
-            "tests/union/union_test_cases/union_test_1b_in.json",
-            "tests/union/union_test_cases/union_test_2b_in.json",
-        ]
+@pytest.mark.parametrize("input_num", [pytest.param(i, id=f"Test {i}") for i in [1, 2]])
+def test_union(input_num: int):
+    # First automaton for each test case
+    automaton1 = None
+    with open(
+        f"tests/union/union_test_cases/union_test_{input_num}a_in.json"
+    ) as test_in1:
+        automaton1 = json.load(test_in1)
+    # Second automaton for each test case
+    automaton2 = None
+    with open(
+        f"tests/union/union_test_cases/union_test_{input_num}b_in.json"
+    ) as test_in2:
+        automaton2 = json.load(test_in2)
 
-        # First automaton for each test case
-        self.automata1 = [{}] * len(filenames1)
-        for i in range(len(filenames1)):
-            with open(filenames1[i]) as f:
-                self.automata1[i] = json.load(f)
+    # Get the answer
+    ans = None
+    with open(
+        f"tests/union/union_test_cases/union_test_{input_num}_out.json"
+    ) as test_out:
+        ans = json.load(test_out)
 
-        # Second automaton for each test case
-        self.automata2 = [{}] * len(filenames2)
-        for i in range(len(filenames1)):
-            with open(filenames2[i]) as f:
-                self.automata2[i] = json.load(f)
+    # Get the product of the appropriate automata
+    result = union([automaton1, automaton2])
 
-    def test_union(self):
-        """
-        This ensures that all pre-built test cases work.
-        """
-        for i in range(len(self.automata1)):
-            # Get the answer
-            ans = None
-            with open(
-                "tests/union/union_test_cases/union_test_" + str(i + 1) + "_out.json"
-            ) as f:
-                ans = json.load(f)
+    # Print
+    # helper.pretty_print(result)
+    # helper.pretty_print(ans)
 
-            # Get the product of the appropriate automata
-            result = union([self.automata1[i], self.automata2[i]])
-
-            # Print
-            # helper.pretty_print(result)
-            # helper.pretty_print(ans)
-
-            # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(
-                converter.convert_to_sets(result), converter.convert_to_sets(ans)
-            )
-
-
-if __name__ == "__main__":
-    unittest.main()
+    # Check answer, making sure it's OK if elements not in order
+    assert converter.convert_to_sets(result) == converter.convert_to_sets(ans)

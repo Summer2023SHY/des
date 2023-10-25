@@ -1,42 +1,37 @@
 import json
-import unittest
+
+import pytest
 
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
 from basic_ops.determinize import determinize
 
 
-class TestDeterminize(unittest.TestCase):
-    def setUp(self):
-        self.filenames = [
-            # "tests/determinize/determinize_test_cases/determinize_test_1_in.json",
-            "tests/determinize/determinize_test_cases/determinize_test_2_in.json"
-        ]
+@pytest.mark.parametrize("input_num", [pytest.param(i, id=f"Test {i}") for i in [1, 2]])
+def test_determinize(input_num: int):
+    if input_num == 1:
+        # Original unittest version of test skipped this input
+        pytest.skip()
+    # First automaton for each test case
+    automaton = None
+    with open(
+        f"tests/determinize/determinize_test_cases/determinize_test_{input_num}_in.json"
+    ) as test_in:
+        automaton = json.load(test_in)
 
-        # First automaton for each test case
-        self.automata = [{}] * len(self.filenames)
-        for i in range(len(self.filenames)):
-            with open(self.filenames[i]) as f:
-                self.automata[i] = json.load(f)
+    # Get the answer
+    ans = None
+    with open(
+        f"tests/determinize/determinize_test_cases/determinize_test_{input_num}_out.json"
+    ) as test_out:
+        ans = json.load(test_out)
 
-    def test_determinize(self):
-        """
-        This ensures that all pre-built test cases work.
-        """
-        for i in range(len(self.automata)):
-            # Get the answer
-            ans = None
-            with open(self.filenames[i][:-7] + "out.json") as f:
-                ans = json.load(f)
+    # Get the determinization of the appropriate automaton
+    result = determinize(automaton)
 
-            # Get the determinization of the appropriate automaton
-            result = determinize(self.automata[i])
+    # Print
+    # helper.pretty_print(result)
+    # helper.pretty_print(ans)
 
-            # Print
-            # helper.pretty_print(result)
-            # helper.pretty_print(ans)
-
-            # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(
-                converter.convert_to_sets(result), converter.convert_to_sets(ans)
-            )
+    # Check answer, making sure it's OK if elements not in order
+    assert converter.convert_to_sets(result) == converter.convert_to_sets(ans)

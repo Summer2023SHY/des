@@ -1,45 +1,29 @@
 import json
-import unittest
+
+import pytest
 
 from structure_validation.automaton_validator import validate
 
 
-class TestAutomatonValidation(unittest.TestCase):
-    def setUp(self):
-        filenames_good = [
-            "tests/product/product_test_cases/product_test_1a_in.json",
-            "tests/product/product_test_cases/product_test_1b_in.json",
-            "tests/product/product_test_cases/product_test_2a_in.json",
-            "tests/product/product_test_cases/product_test_2b_in.json",
-        ]
+def test_validate_good():
+    for i in range(2):
+        for char in ["a", "b"]:
+            with open(
+                f"tests/product/product_test_cases/product_test_{i + 1}{char}_in.json"
+            ) as f:
+                # Good ones should return true
+                assert validate(json.load(f))
 
-        filenames_bad = [
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_1_in.json",
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_2_in.json",
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_3_in.json",
-            "tests/structure_validation/structure_validation_test_cases/structure_validation_4_in.json",
-        ]
 
-        # First automaton for each test case
-        self.automata_good = [{}] * len(filenames_good)
-        for i in range(len(filenames_good)):
-            with open(filenames_good[i]) as f:
-                self.automata_good[i] = json.load(f)
-
-        # Second automaton for each test case
-        self.automata_bad = [{}] * len(filenames_bad)
-        for i in range(len(filenames_bad)):
-            with open(filenames_bad[i]) as f:
-                self.automata_bad[i] = json.load(f)
-
-    def test_product(self):
-        """
-        This ensures that all pre-built test cases work.
-        """
-        # Good ones should return true
-        for a in self.automata_good:
-            self.assertTrue(validate(a))
-        # Bad ones should give exceptions
-        for a in self.automata_bad:
-            with self.assertRaises(Exception):
-                validate(a)
+@pytest.mark.parametrize(
+    "input_num", [pytest.param(i + 1, id=f"Test {i+ 1}") for i in range(4)]
+)
+def test_validate_bad(input_num: int):
+    # Bad ones should give exceptions
+    with pytest.raises(Exception):
+        automaton_bad = None
+        with open(
+            f"tests/structure_validation/structure_validation_test_cases/structure_validation_{input_num}_in.json"
+        ) as f:
+            automaton_bad = json.load(f)
+        validate(automaton_bad)

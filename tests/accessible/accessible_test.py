@@ -1,43 +1,36 @@
 import json
-import unittest
+
+import pytest
 
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
 from basic_ops.accessible import get_accessible
 
 
-class TestAccessible(unittest.TestCase):
-    def setUp(self):
-        self.filenames = [
-            "tests/accessible/accessible_test_cases/accessible_test_1_in.json",
-            "tests/accessible/accessible_test_cases/accessible_test_2_in.json",
-            "tests/accessible/accessible_test_cases/accessible_test_3_in.json",
-        ]
+@pytest.mark.parametrize(
+    "input_num", [pytest.param(i + 1, id=f"Test {i + 1}") for i in range(3)]
+)
+def test_accessible(input_num: int):
+    # First automaton for each test case
+    automaton = None
+    with open(
+        f"tests/accessible/accessible_test_cases/accessible_test_{input_num}_in.json"
+    ) as test_in:
+        automaton = json.load(test_in)
 
-        # First automaton for each test case
-        self.automata = [{}] * len(self.filenames)
-        for i in range(len(self.filenames)):
-            with open(self.filenames[i]) as f:
-                self.automata[i] = json.load(f)
+    # Get the answer
+    ans = None
+    with open(
+        f"tests/accessible/accessible_test_cases/accessible_test_{input_num}_out.json"
+    ) as test_out:
+        ans = json.load(test_out)
 
-    def test_accessible(self):
-        """
-        This ensures that all pre-built test cases work.
-        """
-        for i in range(len(self.automata)):
-            # Get the answer
-            ans = None
-            with open(self.filenames[i][:-7] + "out.json") as f:
-                ans = json.load(f)
+    # Get the arena for the appropriate automaton
+    result = get_accessible(automaton)
 
-            # Get the arena for the appropriate automaton
-            result = get_accessible(self.automata[i])
+    # Print
+    # helper.pretty_print(result["states"]["bad"])
+    # helper.pretty_print(result)
 
-            # Print
-            # helper.pretty_print(result["states"]["bad"])
-            # helper.pretty_print(result)
-
-            # Check answer, making sure it's OK if elements not in order
-            self.assertEqual(
-                converter.convert_to_sets(result), converter.convert_to_sets(ans)
-            )
+    # Check answer, making sure it's OK if elements not in order
+    assert converter.convert_to_sets(result) == converter.convert_to_sets(ans)

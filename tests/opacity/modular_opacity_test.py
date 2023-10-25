@@ -1,5 +1,6 @@
 import json
-import unittest
+
+import pytest
 
 import basic_ops.helpers.convert_to_sets as converter
 import basic_ops.helpers.string_helpers as helper
@@ -8,42 +9,31 @@ from modular_opacity.modular_opacity_verification import check_modular_opacity
 from structure_validation.automaton_validator import validate
 
 
-class TestModularOpacity(unittest.TestCase):
-    def setUp(self):
-        self.filenames = [
-            # Test case that doesn't work, from paper
-            "tests/opacity/modular_opacity_test_cases/modular_test_1-1_in.json",
-            "tests/opacity/modular_opacity_test_cases/modular_test_1-2_in.json",
-            # Test case that DOES work
-            "tests/opacity/modular_opacity_test_cases/modular_test_2-1_in.json",
-            "tests/opacity/modular_opacity_test_cases/modular_test_2-2_in.json",
-        ]
-        self.answers = [False, True]
+@pytest.mark.parametrize("input_num", [pytest.param(i, id=f"Test {i}") for i in [1, 2]])
+def test_modular_opacity(input_num: int):
+    answer = input_num % 2 == 0
+    filenames = [
+        f"tests/opacity/modular_opacity_test_cases/modular_test_{input_num}-{i}_in.json"
+        for i in [1, 2]
+    ]
 
-        # First automaton for each test case
-        self.automata = [{}] * len(self.filenames)
-        for i in range(len(self.filenames)):
-            with open(self.filenames[i]) as f:
-                self.automata[i] = json.load(f)
-                validate(self.automata[i])
+    # First automaton for each test case
+    automata = [{}] * len(filenames)
+    for i in range(len(filenames)):
+        with open(filenames[i]) as f:
+            automata[i] = json.load(f)
+            validate(automata[i])
 
-    def test_modular_opacity(self):
-        """
-        This ensures that all pre-built test cases work.
-        """
-        for i in range(len(self.automata) // 2):
-            # Check if opaque
-            result = check_modular_opacity(
-                [self.automata[2 * i], self.automata[2 * i + 1]]
-            )
-            self.assertEqual(result, self.answers[i])
-            result = check_modular_opacity(
-                [self.automata[2 * i], self.automata[2 * i + 1]],
-                heuristic=most_shared_heuristic,
-            )
-            self.assertEqual(result, self.answers[i])
-            result = check_modular_opacity(
-                [self.automata[2 * i], self.automata[2 * i + 1]],
-                heuristic=least_new_heuristic,
-            )
-            self.assertEqual(result, self.answers[i])
+    # Check if opaque
+    result = check_modular_opacity(automata)
+    assert result == answer
+    result = check_modular_opacity(
+        automata,
+        heuristic=most_shared_heuristic,
+    )
+    assert result == answer
+    result = check_modular_opacity(
+        automata,
+        heuristic=least_new_heuristic,
+    )
+    assert result == answer
