@@ -8,7 +8,9 @@ import basic_ops.helpers.string_helpers as helper
 from basic_ops.opacity import check_opacity
 
 
-@pytest.mark.parametrize("input_num", [pytest.param(i + 1, id=f"Test {i + 1}") for i in range(4)])
+@pytest.mark.parametrize(
+    "input_num", [pytest.param(i + 1, id=f"Test {i + 1}") for i in range(4)]
+)
 def test_opacity(input_num: int):
     # First automaton for each test case
     automaton = None
