@@ -1,6 +1,7 @@
-from cli.menus.main_menu import main_menu
-import global_settings
 from tempfile import TemporaryDirectory
+
+import global_settings
+from cli.menus.main_menu import main_menu
 
 """
 This main file runs the DES application on the command line.

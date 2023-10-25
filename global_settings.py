@@ -1,6 +1,6 @@
 import json
-from cli.display.message import show_error
 
+from cli.display.message import show_error
 
 # The settings file for saving
 settings_file = "settings.ini"
