@@ -38,7 +38,7 @@ def select_heuristic() -> (
     """
     display_menu(menu_msg)
 
-    inpt = input()
+    inpt = input("> ")
     while True:
         if inpt in ["0"]:
             show_notification("Selected no heuristic")
@@ -51,4 +51,4 @@ def select_heuristic() -> (
             return least_new_heuristic
         else:
             show_error("Command not recognized")
-            inpt = input()
+            inpt = input("> ")

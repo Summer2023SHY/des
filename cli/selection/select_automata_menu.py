@@ -78,7 +78,7 @@ def select_automata_menu(
     # Keep selecting until type "e" or "exit"
     while True:
         print_selected(automata, selected)
-        inpt = input()
+        inpt = input("> ")
         try:
             # Get the integer input from the user and select it
             if int(inpt) in range(num_options):
@@ -143,7 +143,7 @@ def select_automaton_menu(
     # Keep selecting until type "e" or "exit"
     while True:
         print_selected(automata, selected)
-        inpt = input()
+        inpt = input("> ")
         try:
             # If successfully selected, return the selection
             if int(inpt) in range(num_options):

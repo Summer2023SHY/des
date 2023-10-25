@@ -47,7 +47,7 @@ def select_observer_menu(automaton: Automaton) -> int | None:
     display_menu(msg)
 
     while True:
-        inpt = input()
+        inpt = input("> ")
         try:
             # If we get a good number, select it!
             if int(inpt) in range(num_obs):

@@ -96,7 +96,7 @@ def ops_menu(automata: list[Automaton], temp_dir: str):
     """
     display_menu(menu_msg)
 
-    inpt = input().lower()
+    inpt = input("> ").lower()
 
     # Choose which operation to perform
     if inpt in ["d", "determinization"]:

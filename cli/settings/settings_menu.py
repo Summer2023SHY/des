@@ -26,7 +26,7 @@ def settings_menu() -> None:
     """
     display_menu(menu_msg)
 
-    inpt = input().lower()
+    inpt = input("> ").lower()
 
     # Choose which operation to perform
     if inpt in ["f", "file"]:

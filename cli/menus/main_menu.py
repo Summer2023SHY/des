@@ -52,7 +52,7 @@ def main_menu(
     display_menu(menu_msg)
 
     # Based on input, choose which type of operation to perform
-    inpt = input().lower()
+    inpt = input("> ").lower()
     if inpt in ["o", "open"]:
         open_file_menu(automata, temp_dir)
     elif inpt in ["l", "list"]:

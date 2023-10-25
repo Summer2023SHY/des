@@ -42,7 +42,7 @@ def close_automata_menu(automata: list[Automaton]) -> None:
     while True:
         # Print what we've selected so far
         print_selected(automata, selected)
-        inpt = input()
+        inpt = input("> ")
         try:
             # If input is fine, toggle the selection
             if int(inpt) in range(num_options):

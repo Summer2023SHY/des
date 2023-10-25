@@ -29,7 +29,7 @@ def choose_auto_vis() -> bool | None:
     """
     display_menu(menu_msg)
     while True:
-        inpt = input()
+        inpt = input("> ")
         # Check if the user wishes to quit
         inpt = inpt.lower()
         if inpt in ["y", "yes"]:

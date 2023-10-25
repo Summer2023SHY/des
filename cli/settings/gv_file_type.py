@@ -43,7 +43,7 @@ def choose_gv_file_type() -> int | None:
     """
     display_menu(menu_msg + get_file_type_options() + menu_msg_2)
     while True:
-        inpt = input()
+        inpt = input("> ")
         try:
             # If we get a good number, select it!
             if int(inpt) in range(len(file_types)):

@@ -37,10 +37,10 @@ def name_automaton_menu(automata: list[Automaton], automaton: Automaton):
 
     # Otherwise, shows a menu to request a name
     display_menu(menu_msg)
-    name = input()
+    name = input("> ")
     while name in bad_names:
         show_error("Name already taken! Try again")
-        name = input()
+        name = input("> ")
 
     # Name the automaton and notify the user
     automaton["name"] = name
